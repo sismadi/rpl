@@ -1,0 +1,87 @@
+{
+  "page": "pertemuan_10_konsep_prinsip_desain_pl",
+  "data": [
+    {
+      "section": "header",
+      "content": {
+        "nama": "Pertemuan 10: Konsep dan Prinsip Desain Perangkat Lunak",
+        "tagline": "Analisis menjawab 'APA' yang harus dibangun. Desain menjawab 'BAGAIMANA' membangunnya.",
+        "deskripsi": "Desain adalah cetak biru (blueprint) teknis — transisi kritis dari pemahaman kebutuhan ke rencana implementasi.\nDesain yang buruk menghasilkan kode yang benar tapi tidak bisa dipelihara.",
+        "cta": [
+          { "text": "Eksplorasi Prinsip Desain", "link": "#prinsip", "icon": "setting" }
+        ]
+      }
+    },
+    {
+      "section": "stats",
+      "caption": "Mengapa Desain adalah Investasi Terpenting?",
+      "content": [
+        { "nama": "Point", "isi": "Desain perangkat lunak adalah proses mendefinisikan arsitektur, komponen, antarmuka, dan properti sistem sebelum satu baris kode production ditulis.", "icon": "info/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Reason", "isi": "Robert C. Martin (Uncle Bob): 'The only way to go fast, is to go well.' Desain buruk membuat pengembangan makin lambat seiring waktu karena technical debt terus menumpuk.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Example", "isi": "WhatsApp versi awal ditulis ulang total (rewrite) karena arsitektur awal tidak dirancang untuk scale 1 miliar pengguna. Biaya rewrite jauh lebih besar dari biaya desain yang benar di awal.", "icon": "search/32x32/skyblue", "url": "#" },
+        { "nama": "Point (Penegasan)", "isi": "Desain yang baik adalah yang bisa dibaca, dipahami, dan dimodifikasi oleh orang LAIN — bukan hanya oleh programmer yang membuatnya.", "icon": "check/32x32/green", "url": "#" }
+      ]
+    },
+    {
+      "section": "stats",
+      "caption": "5 Prinsip Fundamental Desain PL",
+      "content": [
+        { "nama": "Abstraksi", "isi": "Fokus pada karakteristik esensial, sembunyikan detail implementasi. Ada 3 level: prosedural, data, dan kontrol.", "icon": "search/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Modularitas", "isi": "Bagi sistem menjadi modul yang terpisah (divide and conquer). Kompleksitas total < kompleksitas jumlah bagian.", "icon": "menu/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Information Hiding", "isi": "Setiap modul menyembunyikan detail implementasinya dari modul lain. Perubahan internal = nol dampak eksternal.", "icon": "lock/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Functional Independence", "isi": "Setiap modul melakukan satu fungsi spesifik. Diukur dengan Cohesion (tinggi = bagus) dan Coupling (rendah = bagus).", "icon": "code/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Refinement (Penyaringan)", "isi": "Elaborasi detail secara bertahap dari abstrak ke konkret. Mulai dari 'apa', lalu 'bagaimana', lalu 'detail teknis'.", "icon": "setting/32x32/var(--pColor)", "url": "#" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "4 Komponen Struktural Desain",
+      "content": [
+        { "Aspek": "Desain Arsitektural", "Deskripsi": "Struktur keseluruhan sistem: komponen utama, cara mereka berinteraksi, dan pola arsitektur (MVC, Microservices, dll)." },
+        { "Aspek": "Desain Data", "Deskripsi": "Representasi struktur data dan basis data: entitas, relasi, indeks, dan skema." },
+        { "Aspek": "Desain Antarmuka", "Deskripsi": "Cara sistem berinteraksi dengan pengguna (UI), dengan sistem lain (API), dan antar modul internal." },
+        { "Aspek": "Desain Prosedural", "Deskripsi": "Detail logika pemrosesan setiap modul: algoritma, kondisi, perulangan, dan urutan eksekusi." }
+      ]
+    },
+    {
+      "section": "code",
+      "caption": "Contoh: Information Hiding dalam Kode",
+      "lang": "js",
+      "colorPreset": "github-dark",
+      "lineNumbers": true,
+      "code": "// ❌ DESAIN BURUK — Tanpa Information Hiding\n// Modul lain TAHU detail implementasi database\nconst user = database.query(`SELECT * FROM users WHERE id = ${id}`);\nconst hashed = user.password_bcrypt_hash; // Akses langsung ke field internal!\n\n// ✅ DESAIN BAIK — Dengan Information Hiding\n// UserRepository menyembunyikan detail SQL dan struktur DB\nclass UserRepository {\n  // Detail implementasi TERSEMBUNYI di dalam class\n  #db; // Private field\n  #tableName = 'users';\n\n  async findById(id) {\n    // Modul lain tidak perlu tahu cara query-nya\n    const row = await this.#db.query(\n      `SELECT * FROM ${this.#tableName} WHERE id = ?`, [id]\n    );\n    return this.#mapToUser(row); // Konversi ke domain object\n  }\n\n  async verifyPassword(userId, plainPassword) {\n    // Logic bcrypt tersembunyi di sini\n    const user = await this.findById(userId);\n    return bcrypt.compare(plainPassword, user.passwordHash);\n  }\n}\n\n// Penggunaan dari luar — bersih, tidak bergantung pada detail\nconst repo = new UserRepository();\nconst isValid = await repo.verifyPassword(123, 'myPassword');\n// Jika DB berubah dari MySQL ke PostgreSQL → hanya ubah di dalam class!"
+    },
+    {
+      "section": "progress",
+      "caption": "Karakteristik Desain Berkualitas",
+      "content": [
+        { "label": "Mengimplementasikan semua requirement analisis", "percent": 100, "value": "Wajib — tidak boleh ada yang terlewat" },
+        { "label": "Dapat dibaca dan dipahami oleh programmer lain", "percent": 90, "value": "Sangat Penting untuk kolaborasi" },
+        { "label": "Memberikan gambaran lengkap tentang data, fungsi, perilaku", "percent": 85, "value": "Kritis untuk fase coding" }
+      ]
+    },
+    {
+      "section": "stats",
+      "caption": "Analogi Arsitektur Bangunan",
+      "content": [
+        { "nama": "DFD = Denah Ruangan", "isi": "Menunjukkan APA saja ruangan yang ada dan bagaimana penghuni bergerak antar ruangan.", "icon": "home/32x32/green", "url": "#" },
+        { "nama": "Desain PL = Gambar Teknik", "isi": "Menunjukkan di mana pilar dipasang, bagaimana pipa air mengalir, jalur listrik, dan fundasi bangunan.", "icon": "setting/32x32/skyblue", "url": "#" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Lihat Contoh Blueprint", "url": "#", "icon": "book" },
+        { "text": "Diskusi Prinsip Desain", "url": "#", "icon": "users" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Menu", "modal": "web/side/modules", "icon": "menu" },
+        { "text": "Kembali", "url": "web/page/modul09", "icon": "prev" },
+        { "text": "Lanjut", "url": "web/page/modul11", "icon": "next" }
+      ]
+    }
+  ]
+}

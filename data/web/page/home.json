@@ -1,0 +1,173 @@
+{
+  "page": "software_engineering_imp307",
+  "data": [
+    {
+      "section": "header",
+      "content": {
+        "icon": "code",
+        "nama": "Software Engineering (IMP307)",
+        "tagline": "Engineering is not about building gadgets — it's about solving problems systematically.",
+        "deskripsi": "Selamat datang di modul digital interaktif Rekayasa Perangkat Lunak.\nDi sini, kita menjelajahi perjalanan sebuah ide menjadi produk teknologi yang berkualitas, stabil, dan bermanfaat — dari requirement pertama hingga quality assurance terakhir.",
+        "cta": [
+          { "text": "Mulai Belajar", "link": "#pertemuan", "icon": "book" },
+          { "text": "Peta Materi", "link": "#peta", "icon": "menu" }
+        ]
+      }
+    },
+
+    {
+      "section": "stats",
+      "caption": "Apa yang Akan Anda Kuasai?",
+      "content": [
+        {
+          "nama": "Requirement & Analysis",
+          "isi": "Mendengarkan suara pengguna, menggali kebutuhan tersembunyi, dan menerjemahkannya ke dalam model teknis yang presisi.",
+          "icon": "search/32x32/skyblue",
+          "url": "#"
+        },
+        {
+          "nama": "Design Architecture",
+          "isi": "Merancang tulang punggung sistem — arsitektur, data, antarmuka — agar kokoh, modular, dan mudah dirawat.",
+          "icon": "code/32x32/skyblue",
+          "url": "#"
+        },
+        {
+          "nama": "Testing Strategy",
+          "isi": "Menjadi detektif sistematis: menemukan bug dengan White Box dan Black Box sebelum software menyentuh pengguna.",
+          "icon": "alert/32x32/skyblue",
+          "url": "#"
+        },
+        {
+          "nama": "Quality Assurance",
+          "isi": "Membangun kualitas ke dalam proses — bukan sekadar mencari bug di produk akhir. Standar IEEE & SQA profesional.",
+          "icon": "check/32x32/skyblue",
+          "url": "#"
+        }
+      ]
+    },
+
+    {
+      "section": "stats",
+      "caption": "Mengapa Mata Kuliah Ini Penting?",
+      "content": [
+        {
+          "nama": "Point",
+          "isi": "RPL adalah fondasi semua karier di industri teknologi — developer, analyst, QA engineer, hingga project manager semuanya beroperasi dalam kerangka rekayasa perangkat lunak.",
+          "icon": "info/32x32/var(--pColor)",
+          "url": "#"
+        },
+        {
+          "nama": "Reason",
+          "isi": "Tanpa RPL, programmer hanya 'tukang ketik kode'. Dengan RPL, ia menjadi insinyur yang memahami mengapa sistem gagal, bagaimana mencegahnya, dan bagaimana membangun sistem yang bertahan lama.",
+          "icon": "alert/32x32/skyblue",
+          "url": "#"
+        },
+        {
+          "nama": "Example",
+          "isi": "Studi Standish Group: hanya 31% proyek software berhasil. 52% terlambat/overbudget. 17% dibatalkan. Hampir semua kegagalan berakar pada proses RPL yang diabaikan.",
+          "icon": "search/32x32/skyblue",
+          "url": "#"
+        },
+        {
+          "nama": "Point (Penegasan)",
+          "isi": "Setelah lulus mata kuliah ini, Anda mampu menganalisis, merancang, menguji, dan menjamin kualitas software — bukan hanya menulisnya.",
+          "icon": "check/32x32/green",
+          "url": "#"
+        }
+      ]
+    },
+
+    {
+      "section": "table",
+      "caption": "Peta Perjalanan 16 Pertemuan",
+      "content": [
+        {
+          "Blok": "Blok 1 — Fondasi [P1–P5]",
+          "Fokus": "Konsep RPL, Rekayasa Sistem, Studi Kelayakan, Manajemen Proyek, dan Model Proses (SDLC)",
+          "Output": "Kemampuan memilih strategi pengembangan yang tepat untuk berbagai konteks proyek."
+        },
+        {
+          "Blok": "Blok 2 — Analisis [P6–P8]",
+          "Fokus": "Rekayasa Kebutuhan, Teknik Elicitation, Dokumen SRS, dan Review Komprehensif + UTS",
+          "Output": "Kemampuan menggali, mendokumentasikan, dan memvalidasi kebutuhan pengguna."
+        },
+        {
+          "Blok": "Blok 3 — Desain [P9–P12]",
+          "Fokus": "Pemodelan DFD, Kamus Data, Prinsip Desain, Cohesion & Coupling, dan SDD",
+          "Output": "Kemampuan membuat cetak biru teknis sistem yang modular dan berkualitas."
+        },
+        {
+          "Blok": "Blok 4 — Kualitas [P13–P16]",
+          "Fokus": "White Box & Black Box Testing, BVA, SQA, FTR, Metrik Kualitas, dan UAS",
+          "Output": "Kemampuan menguji dan menjamin kualitas software secara sistematis dan profesional."
+        }
+      ]
+    },
+
+    {
+      "section": "progress",
+      "caption": "3 Mindset Wajib di Mata Kuliah Ini",
+      "content": [
+        {
+          "label": "Pahami Proses, Bukan Hafal Langkah",
+          "percent": 100,
+          "value": "Desain yang baik menghemat 50% waktu pengerjaan dan 80% biaya pemeliharaan."
+        },
+        {
+          "label": "Berpikir Modular di Setiap Masalah",
+          "percent": 100,
+          "value": "Divide & Conquer: sistem besar selalu bisa dipecah menjadi bagian kecil yang terkelola."
+        },
+        {
+          "label": "Kualitas adalah Budaya, Bukan Checklist",
+          "percent": 100,
+          "value": "Kode harus bisa dibaca, ditest, dan dikelola oleh orang lain — bukan hanya oleh pembuatnya."
+        }
+      ]
+    },
+
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Status: Ready to Launch", "url": "#", "icon": "info/24x24/var(--pColor)" },
+        { "text": "Dosen: Tim Informatika", "url": "#", "icon": "users/24x24/var(--pColor)" },
+        { "text": "Kurikulum: 2023.09.02", "url": "#", "icon": "setting/24x24/var(--pColor)" }
+      ]
+    },
+
+    {
+      "section": "stats",
+      "caption": "Modul",
+      "content": [
+        { "title": "Modul 1", "desc": "Pengenalan RPL: definisi, karakteristik, dan aktivitas fundamental rekayasa perangkat lunak.", "icon": "book", "url": "web/page/modul01" },
+        { "title": "Modul 2", "desc": "Pendalaman PL & Rekayasa Sistem: peran ganda software dan ekosistem interdisipliner.", "icon": "code", "url": "web/page/modul02" },
+        { "title": "Modul 3", "desc": "Feasibility Studies: PIECES framework dan keputusan Go/No-Go sebelum proyek dimulai.", "icon": "search", "url": "web/page/modul03" },
+        { "title": "Modul 4", "desc": "Manajemen Proyek PL: spektrum 4P, estimasi, penjadwalan, dan manajemen risiko.", "icon": "setting", "url": "web/page/modul04" },
+        { "title": "Modul 5", "desc": "Model Proses SDLC: Waterfall, Spiral, RAD, Agile — kapan dan mengapa masing-masing digunakan.", "icon": "menu", "url": "web/page/modul05" },
+        { "title": "Modul 6", "desc": "Rekayasa Kebutuhan: elicitation, SRS, functional vs non-functional requirements.", "icon": "users", "url": "web/page/modul06" },
+        { "title": "Modul 7", "desc": "Review Komprehensif P1–P6: integrasi konsep dan persiapan UTS.", "icon": "check", "url": "web/page/modul07" },
+        { "title": "UTS", "desc": "Evaluasi Tengah Semester: CPMK 1 & 2, analisis kasus SDLC dan rekayasa kebutuhan.", "icon": "lock", "url": "web/page/modul08" },
+        { "title": "Modul 9", "desc": "Pemodelan Analisis DFD: komponen, leveling, kamus data, dan aturan validasi diagram.", "icon": "code", "url": "web/page/modul09" },
+        { "title": "Modul 10", "desc": "Prinsip Desain PL: abstraksi, modularitas, information hiding, dan functional independence.", "icon": "search", "url": "web/page/modul10" },
+        { "title": "Modul 11", "desc": "Desain Modular: Cohesion (tingkatan) dan Coupling (tingkatan) — metrik kemandirian fungsional.", "icon": "setting", "url": "web/page/modul11" },
+        { "title": "Modul 12", "desc": "Desain Teknis: Transform vs Transaction Mapping, SDD, dan prinsip desain antarmuka HCI.", "icon": "menu", "url": "web/page/modul12" },
+        { "title": "Modul 13", "desc": "Teknik Pengujian: White Box (Cyclomatic Complexity) dan Black Box (BVA, Equivalence Partitioning).", "icon": "alert", "url": "web/page/modul13" },
+        { "title": "Modul 14", "desc": "Software Quality Assurance: SQA vs Testing, FTR, metrik McCall, dan standar IEEE.", "icon": "check", "url": "web/page/modul14" },
+        { "title": "Modul 15", "desc": "Review Akhir & Integrasi: The Big Picture SDLC dan checklist kesiapan UAS.", "icon": "book", "url": "web/page/modul15" },
+        { "title": "UAS", "desc": "Evaluasi Akhir Semester: CPMK 3–5, desain modular, pengujian, dan penjaminan mutu.", "icon": "lock", "url": "web/page/modul16" }
+      ]
+    },
+
+    {
+      "section": "stats",
+      "caption": "tentangs",
+      "content": [
+        {
+          "icon": "piawai/150",
+          "title": "Filosofi",
+          "desc": "Teknologi yang baik adalah yang tidak terlihat, namun membuat segalanya terasa mungkin."
+        }
+      ]
+    }
+  ]
+}

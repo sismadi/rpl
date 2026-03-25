@@ -1,0 +1,94 @@
+{
+  "page": "pertemuan_14_software_quality_assurance",
+  "data": [
+    {
+      "section": "header",
+      "content": {
+        "nama": "Pertemuan 14: Software Quality Assurance (SQA)",
+        "tagline": "Testing mencari bug. SQA memastikan bug tidak pernah punya kesempatan untuk lahir.",
+        "deskripsi": "SQA adalah pendekatan manajerial dan sistematis untuk membangun kualitas ke dalam PROSES pengembangan — bukan hanya mencari masalah di produk akhir.\nKualitas direncanakan, bukan diinspeksi.",
+        "cta": [
+          { "text": "Pelajari Aktivitas SQA", "link": "#aktivitas", "icon": "check" }
+        ]
+      }
+    },
+    {
+      "section": "stats",
+      "caption": "Perbedaan Testing vs SQA — Konsep Kritis",
+      "content": [
+        { "nama": "Point", "isi": "Testing adalah menemukan defect di PRODUK. SQA adalah memastikan PROSES pengembangan dijalankan sesuai standar agar defect tidak muncul sejak awal.", "icon": "info/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Reason", "isi": "Kualitas tidak bisa 'dimasukkan' ke dalam produk di akhir pengembangan seperti menambahkan garam ke makanan yang sudah matang. Ia harus dibangun dari awal.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Example", "isi": "ISO 9001 certified software company memiliki 40% lebih sedikit defect bukan karena tester-nya lebih baik, tapi karena proses dokumentasi, review, dan standar kodenya lebih ketat.", "icon": "search/32x32/skyblue", "url": "#" },
+        { "nama": "Point (Penegasan)", "isi": "SQA menjawab: 'Apakah kita mengikuti proses yang benar?' Testing menjawab: 'Apakah produknya benar?' Keduanya wajib, tapi SQA lebih preventif.", "icon": "check/32x32/green", "url": "#" }
+      ]
+    },
+    {
+      "section": "stats",
+      "caption": "3 Komponen Utama SQA",
+      "content": [
+        { "nama": "Aplikasi Standar", "isi": "Memastikan tim mengikuti standar pengodean, dokumentasi, dan proses yang telah ditetapkan (IEEE, ISO 9001, CMMI).", "icon": "book/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Audit & Review Teknis", "isi": "Pemeriksaan berkala terhadap dokumen (SRS, SDD), kode sumber, dan rencana pengujian untuk memastikan kepatuhan standar.", "icon": "search/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Manajemen Risiko Kualitas", "isi": "Identifikasi risiko yang berpotensi menurunkan kualitas dan mitigasi proaktif sebelum dampak terjadi.", "icon": "alert/32x32/var(--pColor)", "url": "#" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "4 Metrik Kualitas Utama (McCall's Quality Factors)",
+      "content": [
+        { "Metrik": "Correctness (Kebenaran)", "Definisi": "Sejauh mana sistem memenuhi spesifikasi dan tujuan pengguna secara akurat.", "Cara Ukur": "Persentase requirement yang tervalidasi lulus." },
+        { "Metrik": "Reliability (Keandalan)", "Definisi": "Kemampuan sistem berfungsi tanpa kegagalan dalam kondisi dan periode tertentu.", "Cara Ukur": "MTBF (Mean Time Between Failures) — makin panjang makin baik." },
+        { "Metrik": "Maintainability", "Definisi": "Kemudahan sistem untuk diperbaiki, diubah, atau ditingkatkan setelah dirilis.", "Cara Ukur": "MTTR (Mean Time To Repair) — makin pendek makin baik." },
+        { "Metrik": "Usability", "Definisi": "Tingkat kemudahan dan kenyamanan penggunaan bagi pengguna akhir yang ditargetkan.", "Cara Ukur": "SUS Score (System Usability Scale) — target > 70." }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "Formal Technical Review (FTR) — Mekanisme Pencegahan Defect",
+      "content": [
+        { "Aspek": "Tujuan", "Deskripsi": "Menemukan kesalahan logika, ambiguitas, dan inkonsistensi di dokumen atau kode sebelum masuk ke fase berikutnya." },
+        { "Aspek": "Peserta", "Deskripsi": "Tim terbatas 3-5 orang: Producer (pembuat), Reviewer (penilai), dan Recorder (pencatat). Manajer tidak hadir." },
+        { "Aspek": "Aturan Utama", "Deskripsi": "Review PRODUK, bukan orangnya. Tidak ada argumen pembelaan. Fokus pada menemukan masalah, bukan memecahkannya di tempat." },
+        { "Aspek": "Output", "Deskripsi": "Review Issue List (daftar masalah yang ditemukan) dan keputusan: Accept / Accept with Modification / Rework & Re-review." }
+      ]
+    },
+    {
+      "section": "code",
+      "caption": "Contoh: Checklist Code Review (Bagian dari FTR)",
+      "lang": "json",
+      "colorPreset": "dracula",
+      "lineNumbers": true,
+      "code": "{\n  \"code_review_checklist\": {\n    \"correctness\": [\n      \"✓ Apakah logika sudah sesuai dengan spesifikasi di SRS?\",\n      \"✓ Apakah semua edge case sudah ditangani?\",\n      \"✓ Apakah kondisi batas (boundary) sudah dicek?\"\n    ],\n    \"reliability\": [\n      \"✓ Apakah semua exception sudah di-handle dengan benar?\",\n      \"✓ Apakah ada resource leak (koneksi DB, file handle tidak ditutup)?\",\n      \"✓ Apakah ada kemungkinan null pointer / undefined access?\"\n    ],\n    \"maintainability\": [\n      \"✓ Apakah nama variabel/fungsi deskriptif dan konsisten?\",\n      \"✓ Apakah tidak ada magic number tanpa komentar?\",\n      \"✓ Apakah panjang fungsi < 50 baris (Single Responsibility)?\"\n    ],\n    \"security\": [\n      \"✓ Apakah input user sudah divalidasi dan di-sanitize?\",\n      \"✓ Apakah tidak ada hard-coded credentials?\",\n      \"✓ Apakah data sensitif tidak di-log?\"\n    ]\n  }\n}"
+    },
+    {
+      "section": "progress",
+      "caption": "Prinsip SQA: Dua Tingkatan Kualitas",
+      "content": [
+        { "label": "Kualitas Eksplisit — Sesuai Kebutuhan Tertulis (SRS)", "percent": 100, "value": "Wajib — tanpa ini sistem dianggap gagal" },
+        { "label": "Kualitas Implisit — Profesionalisme & Standar Industri", "percent": 90, "value": "Sangat Penting — ini yang membedakan amatir dari profesional" }
+      ]
+    },
+    {
+      "section": "stats",
+      "caption": "Standar SQA yang Relevan",
+      "content": [
+        { "nama": "IEEE 730 (SQA Plan)", "isi": "Standar untuk membuat dokumen rencana SQA yang mencakup semua aktivitas quality assurance proyek.", "icon": "book/32x32/skyblue", "url": "#" },
+        { "nama": "CMMI Level", "isi": "Capability Maturity Model Integration: mengukur kematangan proses organisasi dari Level 1 (Chaotic) hingga Level 5 (Optimizing).", "icon": "check/32x32/green", "url": "#" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Latihan Analisis Error", "url": "#", "icon": "code" },
+        { "text": "Diskusi Standar IEEE", "url": "#", "icon": "users" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Menu", "modal": "web/side/modules", "icon": "menu" },
+        { "text": "Kembali", "url": "web/page/modul13", "icon": "prev" },
+        { "text": "Lanjut", "url": "web/page/modul15", "icon": "next" }
+      ]
+    }
+  ]
+}

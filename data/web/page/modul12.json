@@ -1,0 +1,94 @@
+{
+  "page": "pertemuan_12_tahapan_desain_teknis_pl",
+  "data": [
+    {
+      "section": "header",
+      "content": {
+        "nama": "Pertemuan 12: Tahapan Desain Teknis Perangkat Lunak",
+        "tagline": "SDD adalah peta jalan programmer — tanpanya, tim berlari tanpa tujuan yang sama.",
+        "deskripsi": "Tahap finalisasi blueprint sebelum coding dimulai.\nFokus pada pembuatan Software Design Document (SDD) dan teknik pemetaan DFD ke struktur program.",
+        "cta": [
+          { "text": "Lihat Struktur SDD", "link": "#sdd", "icon": "book" }
+        ]
+      }
+    },
+    {
+      "section": "stats",
+      "caption": "Mengapa SDD adalah Dokumen Terpenting Fase Desain?",
+      "content": [
+        { "nama": "Point", "isi": "Software Design Document (SDD) adalah terjemahan teknis dari SRS — mengubah 'APA yang harus dilakukan' menjadi 'BAGAIMANA cara melakukannya' dalam bahasa yang dipahami programmer.", "icon": "info/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Reason", "isi": "Tim 5 programmer yang bekerja tanpa SDD akan menghasilkan 5 arsitektur berbeda yang tidak bisa disatukan. SDD memastikan semua orang membangun bagian dari puzzle yang sama.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Example", "isi": "Proyek software pemerintah yang gagal integrasi antar modul hampir selalu memiliki akar masalah yang sama: tidak ada SDD, atau SDD tidak diikuti.", "icon": "search/32x32/skyblue", "url": "#" },
+        { "nama": "Point (Penegasan)", "isi": "SDD yang baik memungkinkan programmer baru bergabung dan langsung produktif dalam hari pertama — bukan setelah 2 minggu 'membaca kode'.", "icon": "check/32x32/green", "url": "#" }
+      ]
+    },
+    {
+      "section": "stats",
+      "caption": "4 Lapisan Utama dalam Desain Teknis",
+      "content": [
+        { "nama": "Desain Data", "isi": "Transformasi model informasi dari DFD/ERD menjadi struktur basis data konkret: tabel, relasi, tipe data, dan indeks.", "icon": "search/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Desain Arsitektural", "isi": "Mendefinisikan hubungan antar komponen/modul utama sistem. Pilih pola arsitektur: MVC, Layered, Microservices, atau Event-Driven.", "icon": "menu/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Desain Antarmuka", "isi": "Tiga dimensi: UI (pengguna ↔ sistem), API (sistem ↔ sistem lain), dan internal interface (modul ↔ modul).", "icon": "user/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Desain Prosedural", "isi": "Detail algoritma dan logika setiap modul: urutan langkah, kondisi percabangan, dan penanganan error.", "icon": "code/32x32/var(--pColor)", "url": "#" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "Teknik Mapping: Dari DFD ke Struktur Program",
+      "content": [
+        { "Teknik": "Transform Mapping", "Kapan": "DFD memiliki alur masuk → proses tengah → alur keluar yang linear", "Hasil": "Struktur hierarkis: Main Controller → Input Module, Transform Module, Output Module." },
+        { "Teknik": "Transaction Mapping", "Kapan": "DFD memiliki satu titik masuk yang memicu banyak jalur berbeda (seperti menu)", "Hasil": "Struktur dengan Transaction Controller yang mendistribusikan ke Action Module masing-masing." }
+      ]
+    },
+    {
+      "section": "code",
+      "caption": "Contoh: Transform Mapping dalam Struktur Kode",
+      "lang": "js",
+      "colorPreset": "monokai",
+      "lineNumbers": true,
+      "code": "// TRANSFORM MAPPING — Alur: Input → Proses → Output\n// DFD: [Mahasiswa] → (Input Nilai) → (Hitung IP) → (Generate Transkrip) → [PDF]\n\n// Level 0: Main Controller\nclass TranskriipController {\n  async generateTranskrip(mahasiswaId) {\n    // 1. INPUT MODULE — Ambil data\n    const nilaiData = await this.inputModule.getNilai(mahasiswaId);\n\n    // 2. TRANSFORM MODULE — Proses inti\n    const ipSemester = this.transformModule.hitungIP(nilaiData);\n    const rekap = this.transformModule.rekapMataKuliah(nilaiData);\n\n    // 3. OUTPUT MODULE — Hasilkan output\n    return this.outputModule.generatePDF({ ipSemester, rekap });\n  }\n}\n\n// TRANSACTION MAPPING — Satu input, banyak jalur\n// DFD: [User] → (Pilih Menu) → {Login / Daftar / Reset Password / Lihat Profil}\nclass AuthController {\n  handle(action, payload) {\n    const routes = {\n      'login'          : () => this.loginService.execute(payload),\n      'register'       : () => this.registerService.execute(payload),\n      'resetPassword'  : () => this.resetService.execute(payload),\n      'viewProfile'    : () => this.profileService.get(payload.userId)\n    };\n    return routes[action]?.() ?? this.errorHandler.unknownAction(action);\n  }\n}"
+    },
+    {
+      "section": "progress",
+      "caption": "Prinsip Desain Antarmuka (HCI — Human-Computer Interaction)",
+      "content": [
+        { "label": "Konsistensi (Warna, Ikon, Terminologi)", "percent": 100, "value": "Wajib — pengguna tidak boleh dikagetkan" },
+        { "label": "Umpan Balik Sistem (Loading, Sukses, Error)", "percent": 90, "value": "Sangat Penting — pengguna harus tahu apa yang terjadi" },
+        { "label": "Minimalisme (Hanya tampilkan yang perlu)", "percent": 85, "value": "Tinggi — noise visual = confusion" },
+        { "label": "Error Recovery yang Mudah", "percent": 80, "value": "Penting — kesalahan manusiawi adalah pasti" }
+      ]
+    },
+    {
+      "section": "code",
+      "caption": "Contoh: Isi Software Design Document (SDD)",
+      "lang": "json",
+      "colorPreset": "nord",
+      "lineNumbers": true,
+      "code": "{\n  \"dokumen\": \"Software Design Document v1.0\",\n  \"proyek\": \"Sistem Informasi Akademik UNIV\",\n  \"bagian\": [\n    {\n      \"no\": 1,\n      \"judul\": \"Gambaran Sistem\",\n      \"isi\": \"Deskripsi arsitektur keseluruhan dan pola arsitektur yang dipilih (3-Tier Architecture)\"\n    },\n    {\n      \"no\": 2,\n      \"judul\": \"Desain Data\",\n      \"isi\": \"Skema database lengkap: 12 tabel, relasi FK, dan indeks untuk query kritis\"\n    },\n    {\n      \"no\": 3,\n      \"judul\": \"Desain Arsitektural\",\n      \"isi\": \"Diagram komponen: Frontend (React), Backend (Node.js API), Database (PostgreSQL)\"\n    },\n    {\n      \"no\": 4,\n      \"judul\": \"Desain Antarmuka\",\n      \"isi\": \"Wireframe 24 layar, API contract (OpenAPI 3.0 spec), dan panduan komponen UI\"\n    },\n    {\n      \"no\": 5,\n      \"judul\": \"Desain Prosedural\",\n      \"isi\": \"Pseudocode/flowchart untuk 8 algoritma kritis: kalkulasi IP, sinkronisasi data, dll\"\n    }\n  ]\n}"
+    },
+    {
+      "section": "stats",
+      "caption": "Risiko Tanpa Dokumen SDD",
+      "content": [
+        { "nama": "Spaghetti Code", "isi": "Kode saling bergantung tanpa struktur — mirip mie yang tidak bisa diurai. Sulit di-debug dan ditest.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Bottleneck Kolaborasi", "isi": "Tim tidak bisa bekerja paralel karena tidak ada kesepakatan tentang interface antar modul.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Maintenance Mahal", "isi": "Biaya pemeliharaan bisa mencapai 70% dari total biaya hidup software tanpa dokumentasi yang baik.", "icon": "alert/32x32/skyblue", "url": "#" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Unduh Template SDD", "url": "#", "icon": "lock" },
+        { "text": "Diskusi Pemetaan DFD", "url": "#", "icon": "users" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Menu", "modal": "web/side/modules", "icon": "menu" },
+        { "text": "Kembali", "url": "web/page/modul11", "icon": "prev" },
+        { "text": "Lanjut", "url": "web/page/modul13", "icon": "next" }
+      ]
+    }
+  ]
+}

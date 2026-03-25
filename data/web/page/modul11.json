@@ -1,0 +1,88 @@
+{
+  "page": "pertemuan_11_desain_modular_efektif",
+  "data": [
+    {
+      "section": "header",
+      "content": {
+        "nama": "Pertemuan 11: Desain Modular yang Efektif",
+        "tagline": "High Cohesion, Low Coupling — dua kata yang membedakan kode profesional dari kode amatir.",
+        "deskripsi": "Dua metrik kemandirian fungsional ini adalah standar industri untuk menilai kualitas desain modular.\nMemahaminya berarti mampu menilai dan membuat arsitektur software yang bisa hidup lama.",
+        "cta": [
+          { "text": "Pelajari Metrik", "link": "#metrik", "icon": "setting" }
+        ]
+      }
+    },
+    {
+      "section": "stats",
+      "caption": "Mengapa Cohesion & Coupling adalah Standar Kualitas?",
+      "content": [
+        { "nama": "Point", "isi": "Cohesion mengukur seberapa erat elemen DALAM satu modul saling terkait. Coupling mengukur seberapa dalam ketergantungan ANTAR modul. Target: Cohesion Tinggi + Coupling Rendah.", "icon": "info/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Reason", "isi": "Modul dengan Low Cohesion melakukan banyak hal sekaligus — sulit ditest, sulit di-debug, dan jika diubah berdampak ke mana-mana. High Coupling berarti mengubah satu modul = risiko merusak modul lain.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Example", "isi": "Komponen RAM di komputer: tugas tunggal (simpan data aktif) = High Cohesion. Bisa dilepas-pasang tanpa bongkar motherboard = Low Coupling. RAM yang disolder ke board = High Coupling yang buruk.", "icon": "search/32x32/skyblue", "url": "#" },
+        { "nama": "Point (Penegasan)", "isi": "Software dengan High Cohesion & Low Coupling adalah software yang bisa ditest per bagian, diperbaiki tanpa takut, dan dikembangkan oleh tim berbeda secara paralel.", "icon": "check/32x32/green", "url": "#" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "Tingkatan Cohesion (dari Terburuk ke Terbaik)",
+      "content": [
+        { "Level": "Coincidental (Terburuk)", "Deskripsi": "Elemen-elemen modul tidak punya hubungan logis sama sekali — digabung hanya karena kebetulan.", "Contoh": "Modul 'Utils' yang berisi fungsi hitung pajak, validasi email, dan kirim WhatsApp." },
+        { "Level": "Logical", "Deskripsi": "Elemen melakukan hal serupa tapi tidak saling berhubungan secara fungsional.", "Contoh": "Modul yang menangani semua jenis 'input' (keyboard, mouse, file, network) dalam satu tempat." },
+        { "Level": "Procedural", "Deskripsi": "Elemen dieksekusi secara berurutan tapi tidak berbagi data.", "Contoh": "Modul yang login → log aktivitas → buka halaman dashboard." },
+        { "Level": "Communicational", "Deskripsi": "Elemen bekerja pada data yang sama.", "Contoh": "Modul yang membaca data nasabah, memvalidasi, dan menyimpannya." },
+        { "Level": "Functional (Terbaik)", "Deskripsi": "Semua elemen berkontribusi pada satu tugas yang terdefinisi dengan baik.", "Contoh": "Modul 'CalculateMonthlyInterest' — satu tugas, satu tujuan, sangat jelas." }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "Tingkatan Coupling (dari Terburuk ke Terbaik)",
+      "content": [
+        { "Level": "Content Coupling (Terburuk)", "Deskripsi": "Modul A memodifikasi data internal Modul B secara langsung.", "Dampak": "Perubahan apapun di B bisa merusak A secara tak terduga." },
+        { "Level": "Common Coupling", "Deskripsi": "Banyak modul berbagi variabel global yang sama.", "Dampak": "Salah satu modul mengubah variabel global = seluruh sistem terdampak." },
+        { "Level": "Control Coupling", "Deskripsi": "Modul A mengontrol alur eksekusi Modul B via flag/parameter.", "Dampak": "Modul B tidak benar-benar mandiri, bergantung pada logika di A." },
+        { "Level": "Data Coupling (Terbaik)", "Deskripsi": "Modul berkomunikasi hanya melalui parameter data sederhana.", "Dampak": "Minimal, terisolasi. Mengubah internal modul tidak berdampak ke luar." }
+      ]
+    },
+    {
+      "section": "code",
+      "caption": "Contoh: High vs Low Cohesion dalam Kode",
+      "lang": "js",
+      "colorPreset": "dracula",
+      "lineNumbers": true,
+      "code": "// ❌ LOW COHESION — Modul melakukan terlalu banyak hal\nclass UserUtils {\n  calculateTax(salary) { /* ... */ }      // Keuangan\n  validateEmail(email) { /* ... */ }      // Validasi\n  sendWhatsApp(phone, msg) { /* ... */ }  // Komunikasi\n  generatePDF(data) { /* ... */ }         // Dokumen\n  // Apa hubungan keempatnya? TIDAK ADA.\n}\n\n// ✅ HIGH COHESION — Setiap class punya satu tanggung jawab jelas\nclass UserValidator {\n  validateEmail(email) { return /^[^@]+@[^@]+\\.[^@]+$/.test(email); }\n  validatePhone(phone) { return /^[0-9]{10,13}$/.test(phone); }\n  validateAge(age) { return age >= 17 && age <= 100; }\n  // Semua tentang validasi user — cohesive!\n}\n\nclass TaxCalculator {\n  calculatePPh21(salary) { /* formula PPh21 */ }\n  calculatePPN(price) { return price * 0.11; }\n  // Semua tentang pajak — cohesive!\n}\n\nclass WhatsAppService {\n  send(phone, message) { /* WA API call */ }\n  sendTemplate(phone, templateId, vars) { /* ... */ }\n  // Semua tentang WhatsApp — cohesive!\n}"
+    },
+    {
+      "section": "code",
+      "caption": "Contoh: Low vs High Coupling dalam Kode",
+      "lang": "js",
+      "colorPreset": "nord",
+      "lineNumbers": true,
+      "code": "// ❌ HIGH COUPLING — Modul bergantung langsung pada detail internal\nclass OrderService {\n  createOrder(userId, items) {\n    // Bergantung langsung pada implementasi DB!\n    const user = MySQL.query(`SELECT * FROM users WHERE id=${userId}`);\n    const discount = PromotionEngine.globalDiscountRate; // Variabel global!\n    // Ganti MySQL ke PostgreSQL = OrderService RUSAK\n  }\n}\n\n// ✅ LOW COUPLING — Berkomunikasi via interface/abstraksi\nclass OrderService {\n  constructor(userRepo, promoService, orderRepo) {\n    // Dependency Injection — tidak tahu implementasi konkretnya\n    this.userRepo = userRepo;\n    this.promoService = promoService;\n    this.orderRepo = orderRepo;\n  }\n\n  async createOrder(userId, items) {\n    // Hanya tahu 'kontrak' interface, bukan implementasi internal\n    const user = await this.userRepo.findById(userId);\n    const discount = await this.promoService.getDiscount(userId);\n    return this.orderRepo.save({ userId, items, discount });\n    // Ganti MySQL ke PostgreSQL? Cukup ganti implementasi userRepo!\n    // OrderService tidak perlu diubah sama sekali.\n  }\n}"
+    },
+    {
+      "section": "progress",
+      "caption": "Manfaat Nyata Desain Modular",
+      "content": [
+        { "label": "Kemudahan Pengujian (Testing per Modul)", "percent": 95, "value": "Bug terisolasi — tidak menjalar ke modul lain" },
+        { "label": "Efisiensi Pemeliharaan", "percent": 90, "value": "Perubahan terlokalisasi — risiko minimum" },
+        { "label": "Pengembangan Paralel Tim", "percent": 85, "value": "Tim A dan Tim B bisa bekerja tanpa konflik" },
+        { "label": "Reusability Lintas Proyek", "percent": 80, "value": "Modul bisa dipakai ulang tanpa modifikasi" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Diskusi Skenario Desain", "url": "#", "icon": "users" },
+        { "text": "Cek Indikator Penilaian", "url": "#", "icon": "search" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Menu", "modal": "web/side/modules", "icon": "menu" },
+        { "text": "Kembali", "url": "web/page/modul10", "icon": "prev" },
+        { "text": "Lanjut", "url": "web/page/modul12", "icon": "next" }
+      ]
+    }
+  ]
+}

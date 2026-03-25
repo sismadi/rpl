@@ -1,0 +1,89 @@
+{
+  "page": "pertemuan_3_feasibility_studies",
+  "data": [
+    {
+      "section": "header",
+      "content": {
+        "nama": "Pertemuan 3: Feasibility Studies (Studi Kelayakan)",
+        "tagline": "Proyek terbaik bukan yang paling ambisius — tapi yang paling layak untuk diselesaikan.",
+        "deskripsi": "Studi Kelayakan adalah filter pertama sebelum sumber daya diinvestasikan.\nBukan fase untuk membuat sistem, melainkan fase kritis untuk memutuskan apakah sistem tersebut pantas dan mungkin untuk dibuat.",
+        "cta": [
+          { "text": "Lihat Framework PIECES", "link": "#pieces", "icon": "search" }
+        ]
+      }
+    },
+    {
+      "section": "stats",
+      "caption": "Mengapa Studi Kelayakan Wajib Dilakukan?",
+      "content": [
+        { "nama": "Point", "isi": "Studi Kelayakan menentukan apakah sebuah proyek layak dilanjutkan dari sisi teknis, ekonomis, dan operasional sebelum ada yang menulis satu baris kode.", "icon": "info/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Reason", "isi": "Memulai proyek tanpa studi kelayakan ibarat membangun gedung tanpa cek kondisi tanah. Bisa runtuh di tengah jalan dengan biaya yang sudah terlanjur besar.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Example", "isi": "Proyek e-KTP Indonesia menghabiskan Rp 5,9 triliun lebih — sebagian besar pemborosan bermula dari kelayakan teknis dan operasional yang tidak dikaji matang di awal.", "icon": "search/32x32/skyblue", "url": "#" },
+        { "nama": "Point (Penegasan)", "isi": "Biaya memperbaiki kesalahan di fase analisis = 1x. Di fase desain = 10x. Di fase produksi = 100x. Studi kelayakan mencegah kesalahan paling mahal.", "icon": "check/32x32/green", "url": "#" }
+      ]
+    },
+    {
+      "section": "progress",
+      "caption": "Framework PIECES — 6 Aspek Kelayakan",
+      "content": [
+        { "label": "P — Performance (Kinerja)", "percent": 100, "value": "Apakah sistem baru akan meningkatkan throughput & waktu respons?" },
+        { "label": "I — Information (Informasi)", "percent": 100, "value": "Apakah sistem menghasilkan informasi yang akurat, tepat waktu, dan relevan?" },
+        { "label": "E — Economics (Ekonomi)", "percent": 100, "value": "Apakah manfaat finansial melebihi biaya pengembangan? (ROI)" },
+        { "label": "C — Control (Kontrol)", "percent": 100, "value": "Apakah sistem meningkatkan keamanan dan kontrol data?" },
+        { "label": "E — Efficiency (Efisiensi)", "percent": 100, "value": "Apakah sistem mengurangi pemborosan sumber daya manusia dan waktu?" },
+        { "label": "S — Services (Layanan)", "percent": 100, "value": "Apakah sistem meningkatkan kualitas layanan kepada pengguna akhir?" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "3 Jenis Kelayakan Utama",
+      "content": [
+        { "Jenis": "Technical Feasibility", "Pertanyaan Kunci": "Apakah teknologi yang dibutuhkan tersedia dan tim memiliki keahliannya?", "Output": "Rekomendasi stack teknologi dan kebutuhan pelatihan." },
+        { "Jenis": "Economic Feasibility", "Pertanyaan Kunci": "Apakah benefit > cost? Berapa lama Break Even Point-nya?", "Output": "Analisis Cost-Benefit dan proyeksi ROI." },
+        { "Jenis": "Operational Feasibility", "Pertanyaan Kunci": "Apakah sistem akan diterima dan digunakan oleh pengguna dan organisasi?", "Output": "Analisis perubahan prosedur dan kebutuhan pelatihan SDM." }
+      ]
+    },
+    {
+      "section": "code",
+      "caption": "Contoh: Kalkulasi Sederhana Cost-Benefit Analysis",
+      "lang": "js",
+      "colorPreset": "nord",
+      "lineNumbers": true,
+      "code": "// Cost-Benefit Analysis — Inti dari Economic Feasibility\nfunction costBenefitAnalysis(costs, benefits, years) {\n  const totalCost = costs.development + costs.operational * years;\n  const totalBenefit = benefits.efficiency + benefits.revenue * years;\n\n  const netBenefit = totalBenefit - totalCost;\n  const roi = ((netBenefit / totalCost) * 100).toFixed(2);\n  const breakEvenYear = (costs.development / (benefits.revenue - costs.operational)).toFixed(1);\n\n  return {\n    totalCost: `Rp ${totalCost.toLocaleString('id-ID')}`,\n    totalBenefit: `Rp ${totalBenefit.toLocaleString('id-ID')}`,\n    netBenefit: `Rp ${netBenefit.toLocaleString('id-ID')}`,\n    roi: `${roi}%`,\n    breakEvenYear: `${breakEvenYear} tahun`,\n    rekomendasi: netBenefit > 0 ? '✅ LANJUTKAN PROYEK' : '❌ TINJAU ULANG'\n  };\n}\n\n// Contoh penggunaan:\nconst hasil = costBenefitAnalysis(\n  { development: 500_000_000, operational: 50_000_000 },\n  { efficiency: 100_000_000, revenue: 200_000_000 },\n  3 // tahun\n);\nconsole.log(hasil);"
+    },
+    {
+      "section": "table",
+      "caption": "Hambatan Umum & Cara Mengatasinya",
+      "content": [
+        { "Hambatan": "Data tidak akurat atau tidak tersedia", "Solusi": "Lakukan survei awal, wawancara stakeholder, dan benchmarking industri." },
+        { "Hambatan": "Tekanan manajemen untuk segera mulai", "Solusi": "Tunjukkan data bahwa biaya tanpa kelayakan = risiko 10x lebih besar." },
+        { "Hambatan": "Bias optimisme (overestimate benefit)", "Solusi": "Gunakan analisis skenario: Best Case, Expected Case, Worst Case." },
+        { "Hambatan": "Perubahan kebutuhan yang cepat", "Solusi": "Pertimbangkan model Agile/iteratif sejak tahap studi kelayakan." }
+      ]
+    },
+    {
+      "section": "stats",
+      "caption": "Output Studi Kelayakan",
+      "content": [
+        { "nama": "Lanjutkan (Go)", "isi": "Semua aspek PIECES terpenuhi. Proyek memiliki nilai bisnis yang jelas dan risiko terkontrol.", "icon": "check/32x32/green", "url": "#" },
+        { "nama": "Revisi (Conditional Go)", "isi": "Beberapa aspek perlu penyesuaian — scope dipersempit, teknologi diganti, atau jadwal direlaksasi.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Batalkan (No Go)", "isi": "Risiko terlalu tinggi, atau benefit tidak sebanding dengan investasi yang dibutuhkan.", "icon": "close/32x32/skyblue", "url": "#" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Indikator Penilaian: 5%", "url": "#", "icon": "check" },
+        { "text": "Kembali ke Menu", "url": "web/page/home", "icon": "menu" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Menu", "modal": "web/side/modules", "icon": "menu" },
+        { "text": "Kembali", "url": "web/page/modul02", "icon": "prev" },
+        { "text": "Lanjut", "url": "web/page/modul04", "icon": "next" }
+      ]
+    }
+  ]
+}

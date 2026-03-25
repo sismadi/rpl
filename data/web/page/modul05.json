@@ -1,0 +1,80 @@
+{
+  "page": "pertemuan_5_model_proses_sdlc",
+  "data": [
+    {
+      "section": "header",
+      "content": {
+        "nama": "Pertemuan 5: Model Proses Pengembangan PL (SDLC)",
+        "tagline": "Tidak ada model proses terbaik — hanya model yang paling tepat untuk konteks proyeknya.",
+        "deskripsi": "SDLC (Software Development Life Cycle) adalah representasi abstrak dari proses pengembangan.\nPemilihan model SDLC yang tepat adalah keputusan strategis yang menentukan keberhasilan proyek.",
+        "cta": [
+          { "text": "Lihat Perbandingan Model", "link": "#model-proses", "icon": "menu" }
+        ]
+      }
+    },
+    {
+      "section": "stats",
+      "caption": "Mengapa Pemilihan Model SDLC Sangat Penting?",
+      "content": [
+        { "nama": "Point", "isi": "Model SDLC menentukan kapan, bagaimana, dan oleh siapa setiap aktivitas pengembangan dilakukan. Pilihan yang salah = proyek yang kacau.", "icon": "info/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Reason", "isi": "Setiap proyek memiliki karakteristik unik: tingkat kepastian kebutuhan, toleransi risiko, ukuran tim, dan tenggat waktu. Satu model tidak cocok untuk semua kasus.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Example", "isi": "Membangun software untuk alat kesehatan (FDA-regulated) = Waterfall wajib. Membangun startup app = Agile/Scrum jauh lebih efisien. Menukar keduanya = bencana.", "icon": "search/32x32/skyblue", "url": "#" },
+        { "nama": "Point (Penegasan)", "isi": "Kuasai minimal 3 model (Waterfall, Prototyping, Agile/Spiral) dan tahu kapan masing-masing harus digunakan.", "icon": "check/32x32/green", "url": "#" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "Perbandingan Model SDLC Utama",
+      "content": [
+        { "Model": "Waterfall", "Cocok Untuk": "Kebutuhan statis, tim besar, proyek regulasi ketat", "Kelebihan": "Struktur jelas, mudah dikelola", "Kekurangan": "Kaku — perubahan kebutuhan sangat mahal" },
+        { "Model": "Prototyping", "Cocok Untuk": "Kebutuhan tidak jelas, butuh validasi cepat", "Kelebihan": "Membantu eksplorasi kebutuhan user", "Kekurangan": "Bisa berakhir jadi 'throw-away' yang mahal" },
+        { "Model": "Spiral", "Cocok Untuk": "Proyek besar & kompleks dengan risiko tinggi", "Kelebihan": "Manajemen risiko di setiap iterasi", "Kekurangan": "Mahal, butuh analis risiko berpengalaman" },
+        { "Model": "RAD", "Cocok Untuk": "Waktu sangat terbatas, scope modular", "Kelebihan": "Pengembangan sangat cepat dengan tools otomatis", "Kekurangan": "Sulit untuk sistem yang butuh high-performance" },
+        { "Model": "Agile/Scrum", "Cocok Untuk": "Kebutuhan dinamis, tim kecil, startup", "Kelebihan": "Fleksibel, feedback cepat, rilis inkremental", "Kekurangan": "Kurang cocok untuk proyek dengan kontrak harga tetap" }
+      ]
+    },
+    {
+      "section": "code",
+      "caption": "Analogi Waterfall vs Agile dalam Pseudocode",
+      "lang": "js",
+      "colorPreset": "nord",
+      "lineNumbers": true,
+      "code": "// MODEL WATERFALL — Sekuensial, satu arah\nfunction waterfallProject(requirements) {\n  const analysis  = analyze(requirements);     // Selesai 100% dulu\n  const design    = design(analysis);          // Baru mulai ini\n  const code      = develop(design);           // Baru mulai ini\n  const tested    = test(code);               // Baru mulai ini\n  return deploy(tested);                       // Rilis SEKALI di akhir\n  // ⚠️ Jika requirements salah di langkah 1 = seluruh proses harus diulang!\n}\n\n// MODEL AGILE — Iteratif, inkremental\nfunction agileProject(requirements) {\n  let product = [];\n  const sprints = groupIntoSprints(requirements); // Bagi ke sprint 2 minggu\n\n  sprints.forEach(sprint => {\n    const analyzed = analyze(sprint);    // Analisis mini\n    const coded    = develop(analyzed);  // Coding mini\n    const tested   = test(coded);       // Testing mini\n    product.push(tested);               // Rilis bertahap!\n    requirements = getNewFeedback();    // Kebutuhan bisa berubah tiap sprint\n  });\n\n  return product; // Produk terus berkembang berdasarkan feedback nyata\n}"
+    },
+    {
+      "section": "stats",
+      "caption": "Model Spiral — Quadrant Analysis",
+      "content": [
+        { "nama": "Kuadran 1: Planning", "isi": "Menentukan tujuan, alternatif, dan batasan iterasi saat ini.", "icon": "menu/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Kuadran 2: Risk Analysis", "isi": "Evaluasi alternatif dan identifikasi/resolusi risiko utama iterasi.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Kuadran 3: Engineering", "isi": "Pengembangan dan pengujian produk iterasi saat ini.", "icon": "code/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Kuadran 4: Evaluation", "isi": "Review hasil oleh klien dan perencanaan iterasi berikutnya.", "icon": "check/32x32/green", "url": "#" }
+      ]
+    },
+    {
+      "section": "progress",
+      "caption": "Karakteristik Model Proses",
+      "content": [
+        { "label": "Waterfall — Struktur Linear", "percent": 100, "value": "Requirement → Analysis → Design → Code → Test → Deploy" },
+        { "label": "Prototyping — Eksplorasi Kebutuhan", "percent": 100, "value": "Bangun prototipe cepat → Review → Refine → Ulangi" },
+        { "label": "Spiral — Risk-Driven", "percent": 100, "value": "Plan → Analisis Risiko → Engineering → Evaluasi → Ulang" },
+        { "label": "Agile — Iteratif Adaptif", "percent": 100, "value": "Sprint (2 minggu) → Demo → Feedback → Sprint berikutnya" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Bobot Penilaian: 10%", "url": "#", "icon": "check" },
+        { "text": "Strategi Belajar", "url": "#", "icon": "info" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Menu", "modal": "web/side/modules", "icon": "menu" },
+        { "text": "Kembali", "url": "web/page/modul04", "icon": "prev" },
+        { "text": "Lanjut", "url": "web/page/modul06", "icon": "next" }
+      ]
+    }
+  ]
+}

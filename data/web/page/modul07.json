@@ -1,0 +1,81 @@
+{
+  "page": "pertemuan_7_review_dan_kuis",
+  "data": [
+    {
+      "section": "header",
+      "content": {
+        "nama": "Pertemuan 7: Review Komprehensif & Penguatan Konsep",
+        "tagline": "Memahami peta perjalanan lebih penting dari hafal setiap detail jalan.",
+        "deskripsi": "Sesi integrasi materi Pertemuan 1–6 sebelum UTS.\nFokus pada memahami koneksi antar konsep, bukan menghafal definisi — karena UTS menguji kemampuan analisis, bukan memori.",
+        "cta": [
+          { "text": "Mulai Kuis Latihan", "link": "#kuis", "icon": "book" }
+        ]
+      }
+    },
+    {
+      "section": "stats",
+      "caption": "Peta Koneksi Materi (Big Picture)",
+      "content": [
+        { "nama": "P1-P2: Fondasi RPL", "isi": "Definisi, karakteristik, dan peran ganda software. Dasar untuk memahami semua yang berikutnya.", "icon": "home/32x32/var(--pColor)", "url": "#" },
+        { "nama": "P3: Filter Awal", "isi": "Studi kelayakan memfilter proyek SEBELUM dimulai. Mencegah investasi sia-sia.", "icon": "search/32x32/var(--pColor)", "url": "#" },
+        { "nama": "P4: Kendali Eksekusi", "isi": "Manajemen proyek (4P) memastikan proyek berjalan sesuai biaya, waktu, dan kualitas.", "icon": "setting/32x32/var(--pColor)", "url": "#" },
+        { "nama": "P5: Strategi Pengembangan", "isi": "Pemilihan SDLC yang tepat menentukan ritme dan struktur seluruh aktivitas pengembangan.", "icon": "menu/32x32/var(--pColor)", "url": "#" },
+        { "nama": "P6: Kontrak Teknis", "isi": "Rekayasa kebutuhan menghasilkan SRS — dokumen yang menjadi acuan semua fase berikutnya.", "icon": "book/32x32/var(--pColor)", "url": "#" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "Pertanyaan Kunci Pemahaman (Self-Assessment)",
+      "content": [
+        { "Topik": "Karakteristik PL", "Pertanyaan Kunci": "Mengapa software 'tidak aus' tapi bisa menurun kualitasnya? Jelaskan dengan contoh nyata." },
+        { "Topik": "Studi Kelayakan", "Pertanyaan Kunci": "Sebuah startup punya ide bagus tapi tim tidak berpengalaman. Aspek PIECES mana yang paling kritis?" },
+        { "Topik": "Manajemen 4P", "Pertanyaan Kunci": "Jika proyek terlambat, apakah menambah orang (People) selalu menjadi solusi? Jelaskan dengan Hukum Brooks." },
+        { "Topik": "Pemilihan SDLC", "Pertanyaan Kunci": "Klien tidak bisa menjelaskan kebutuhannya dengan jelas. Model mana yang paling tepat dan mengapa?" },
+        { "Topik": "Rekayasa Kebutuhan", "Pertanyaan Kunci": "Apa perbedaan Validation vs Verification? Berikan contoh konkret untuk masing-masing." }
+      ]
+    },
+    {
+      "section": "stats",
+      "caption": "Perbedaan Kritis: Verification vs Validation",
+      "content": [
+        { "nama": "Point", "isi": "Ini adalah konsep yang paling sering disalahpahami dalam RPL — dan hampir selalu muncul di ujian.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Reason", "isi": "Keduanya berkaitan dengan kualitas tapi menguji hal yang berbeda: satu tentang proses, satu tentang produk akhir.", "icon": "info/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Example — Verification", "isi": "'Apakah kita membangun produk dengan BENAR?' → Cek apakah kode sesuai design document. (Proses internal)", "icon": "check/32x32/green", "url": "#" },
+        { "nama": "Example — Validation", "isi": "'Apakah kita membangun produk yang BENAR?' → Cek apakah produk sesuai kebutuhan klien. (Orientasi eksternal)", "icon": "check/32x32/green", "url": "#" }
+      ]
+    },
+    {
+      "section": "code",
+      "caption": "Rangkuman: Alur Pemikiran dari P1 ke P6",
+      "lang": "bash",
+      "colorPreset": "dracula",
+      "lineNumbers": false,
+      "code": "# PERJALANAN DARI IDE KE KODE — Alur Konseptual P1-P6\n\n# P1-P2: 'Kita membangun apa dan mengapa penting?'\n$ define_software_and_its_role\n\n# P3: 'Apakah proyek ini LAYAK dibuat?'\n$ run_feasibility_study --checks PIECES\n  → OUTPUT: Go / No-Go / Conditional\n\n# P4: 'Bagaimana kita MENGELOLA pembuatannya?'\n$ setup_project_management --4P people,product,process,project\n  → OUTPUT: Project Plan, Risk Register, Gantt Chart\n\n# P5: 'Strategi pengembangan mana yang TEPAT?'\n$ select_sdlc_model --context requirements_clarity,risk_level,team_size\n  → OUTPUT: Waterfall / Spiral / Agile\n\n# P6: 'APA TEPATNYA yang harus dibangun?'\n$ elicit_and_document_requirements --output SRS\n  → OUTPUT: Software Requirements Specification (SRS)\n\n# BARU SETELAH INI → Kita mulai desain dan coding (Pertemuan 9-12)"
+    },
+    {
+      "section": "progress",
+      "caption": "Indikator Kesiapan UTS",
+      "content": [
+        { "label": "Mampu jelaskan karakteristik unik PL", "percent": 90, "value": "Fondasi — Wajib Kuasai" },
+        { "label": "Mampu pilih model SDLC berdasarkan kasus", "percent": 85, "value": "Analisis — Sering Diuji" },
+        { "label": "Pahami perbedaan Verification vs Validation", "percent": 95, "value": "Kritis — Hampir Pasti Muncul" },
+        { "label": "Mampu identifikasi aspek kelayakan PIECES", "percent": 80, "value": "Penting — Berpotensi Kasus" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Latihan Soal Kasus", "url": "#", "icon": "info" },
+        { "text": "Unduh Kisi-kisi UTS", "url": "#", "icon": "lock" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Menu", "modal": "web/side/modules", "icon": "menu" },
+        { "text": "Kembali", "url": "web/page/modul06", "icon": "prev" },
+        { "text": "Lanjut", "url": "web/page/modul08", "icon": "next" }
+      ]
+    }
+  ]
+}

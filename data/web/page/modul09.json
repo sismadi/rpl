@@ -1,0 +1,88 @@
+{
+  "page": "pertemuan_9_pemodelan_analisis_terstruktur",
+  "data": [
+    {
+      "section": "header",
+      "content": {
+        "nama": "Pertemuan 9: Pemodelan Analisis (DFD & Kamus Data)",
+        "tagline": "Sebuah diagram yang tepat menggantikan seribu halaman deskripsi teks.",
+        "deskripsi": "Pemodelan Analisis Terstruktur mengubah narasi kebutuhan menjadi representasi visual yang presisi.\nDFD adalah bahasa universal antara analis, developer, dan klien untuk memahami aliran data sistem.",
+        "cta": [
+          { "text": "Pelajari Komponen DFD", "link": "#komponen", "icon": "code" }
+        ]
+      }
+    },
+    {
+      "section": "stats",
+      "caption": "Mengapa DFD adalah Alat Analisis Paling Fundamental?",
+      "content": [
+        { "nama": "Point", "isi": "DFD (Data Flow Diagram) adalah model grafis yang menggambarkan bagaimana data bergerak, diproses, dan disimpan dalam sistem — tanpa terikat bahasa pemrograman apapun.", "icon": "info/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Reason", "isi": "Klien tidak bisa membaca kode, developer tidak tahu semua proses bisnis. DFD adalah jembatan komunikasi yang dipahami semua pihak tanpa perlu latar belakang teknis.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Example", "isi": "Sistem Informasi Akademik: Mahasiswa → [Input Nilai KRS] → {Proses: Kalkulasi IP} → {DB: Data Akademik} → Dosen. Satu diagram menjelaskan proses yang butuh 5 halaman teks.", "icon": "search/32x32/skyblue", "url": "#" },
+        { "nama": "Point (Penegasan)", "isi": "Aturan emas: Aliran data = Kata Benda (apa yang mengalir). Proses = Kata Kerja (apa yang dilakukan). Pelanggaran aturan ini = DFD yang salah.", "icon": "check/32x32/green", "url": "#" }
+      ]
+    },
+    {
+      "section": "stats",
+      "caption": "4 Komponen Utama DFD",
+      "content": [
+        { "nama": "Entitas Eksternal (Persegi)", "isi": "Sumber atau tujuan data di luar batas sistem. Contoh: Mahasiswa, Admin, Bank. Tidak bisa dikontrol sistem.", "icon": "user/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Proses (Lingkaran/Oval)", "isi": "Aktivitas yang mentransformasi data. HARUS berupa kata kerja. Contoh: 'Validasi Login', 'Hitung IP Semester'.", "icon": "setting/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Data Store (Persegi Terbuka)", "isi": "Tempat penyimpanan data sementara atau permanen. Contoh: DB_Mahasiswa, File_Transaksi.", "icon": "book/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Aliran Data (Panah)", "isi": "Perpindahan data antar komponen. HARUS berupa kata benda. Contoh: 'Data Login', 'Laporan IP'.", "icon": "next/32x32/var(--pColor)", "url": "#" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "Hierarki DFD (Leveling/Dekomposisi)",
+      "content": [
+        { "Level": "Diagram Konteks (Level 0)", "Deskripsi": "Gambaran paling tinggi — satu proses tunggal merepresentasikan SELURUH sistem. Tidak ada Data Store. Menunjukkan batas sistem dengan entitas luar.", "Contoh": "Proses '0 Sistem SIA' dengan entitas Mahasiswa, Dosen, Admin." },
+        { "Level": "DFD Level 1", "Deskripsi": "Penjabaran proses utama dari Level 0. Data Store mulai muncul. Biasanya 3-7 proses.", "Contoh": "Proses: '1.0 Kelola Mahasiswa', '2.0 Kelola Nilai', '3.0 Generate Laporan'." },
+        { "Level": "DFD Level 2+", "Deskripsi": "Dekomposisi lebih rinci dari masing-masing proses Level 1. Dilakukan hanya untuk proses yang kompleks.", "Contoh": "Proses '2.0 Kelola Nilai' dipecah menjadi: '2.1 Input Nilai', '2.2 Hitung IP', '2.3 Validasi Nilai'." }
+      ]
+    },
+    {
+      "section": "code",
+      "caption": "Contoh: Deskripsi DFD dalam Format Terstruktur",
+      "lang": "json",
+      "colorPreset": "nord",
+      "lineNumbers": true,
+      "code": "{\n  \"diagram\": \"DFD Level 1 — Sistem Informasi Akademik\",\n  \"entitas_eksternal\": [\n    { \"id\": \"E1\", \"nama\": \"Mahasiswa\" },\n    { \"id\": \"E2\", \"nama\": \"Dosen\" },\n    { \"id\": \"E3\", \"nama\": \"Admin\" }\n  ],\n  \"proses\": [\n    { \"id\": \"P1\", \"nama\": \"Kelola Registrasi\", \"input\": \"Data Pendaftaran\", \"output\": \"Bukti Registrasi\" },\n    { \"id\": \"P2\", \"nama\": \"Proses KRS\", \"input\": \"Pilihan Mata Kuliah\", \"output\": \"KRS Tersetujui\" },\n    { \"id\": \"P3\", \"nama\": \"Kelola Nilai\", \"input\": \"Nilai Mahasiswa\", \"output\": \"Transkrip Nilai\" }\n  ],\n  \"data_store\": [\n    { \"id\": \"DS1\", \"nama\": \"DB_Mahasiswa\" },\n    { \"id\": \"DS2\", \"nama\": \"DB_Mata_Kuliah\" },\n    { \"id\": \"DS3\", \"nama\": \"DB_Nilai\" }\n  ],\n  \"aliran_data\": [\n    { \"dari\": \"E1\", \"ke\": \"P1\", \"label\": \"Data Pendaftaran\" },\n    { \"dari\": \"P1\", \"ke\": \"DS1\", \"label\": \"Record Mahasiswa Baru\" },\n    { \"dari\": \"E2\", \"ke\": \"P3\", \"label\": \"Input Nilai\" },\n    { \"dari\": \"P3\", \"ke\": \"DS3\", \"label\": \"Data Nilai Final\" }\n  ]\n}"
+    },
+    {
+      "section": "table",
+      "caption": "Kamus Data (Data Dictionary) — Elemen Wajib",
+      "content": [
+        { "Elemen": "Nama", "Deskripsi": "Identifikasi unik aliran data atau data store. Sama persis dengan nama di DFD." },
+        { "Elemen": "Alias", "Deskripsi": "Nama lain yang digunakan oleh bagian/departemen tertentu untuk data yang sama." },
+        { "Elemen": "Deskripsi", "Deskripsi": "Penjelasan singkat tentang isi dan tujuan data tersebut dalam konteks bisnis." },
+        { "Elemen": "Struktur Data", "Deskripsi": "Komposisi detail: field-field yang membentuk data ini beserta tipe dan ukurannya." },
+        { "Elemen": "Volume & Frekuensi", "Deskripsi": "Berapa banyak record dan seberapa sering data ini bergerak (per hari/minggu/bulan)." }
+      ]
+    },
+    {
+      "section": "stats",
+      "caption": "Aturan Validasi DFD",
+      "content": [
+        { "nama": "Black Hole", "isi": "Proses yang menerima input tapi tidak menghasilkan output apa pun. INI SALAH — setiap proses harus menghasilkan sesuatu.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Miracle", "isi": "Proses yang menghasilkan output tanpa menerima input apapun. INI JUGA SALAH — tidak ada sumber data ajaib.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Gray Hole", "isi": "Input lebih sedikit dari yang dibutuhkan untuk menghasilkan output. Data hilang di tengah proses.", "icon": "alert/32x32/skyblue", "url": "#" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Contoh Diagram Konteks", "url": "#", "icon": "search" },
+        { "text": "Latihan Mandiri", "url": "#", "icon": "code" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Menu", "modal": "web/side/modules", "icon": "menu" },
+        { "text": "Kembali", "url": "web/page/modul08", "icon": "prev" },
+        { "text": "Lanjut", "url": "web/page/modul10", "icon": "next" }
+      ]
+    }
+  ]
+}

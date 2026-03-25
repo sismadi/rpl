@@ -1,0 +1,78 @@
+{
+  "page": "pertemuan_4_manajemen_proyek_pl",
+  "data": [
+    {
+      "section": "header",
+      "content": {
+        "nama": "Pertemuan 4: Manajemen Proyek Perangkat Lunak",
+        "tagline": "Kode yang bagus tidak berguna jika proyeknya terlambat, kelebihan anggaran, atau tidak sesuai yang diminta.",
+        "deskripsi": "Manajemen Proyek PL berfokus pada sisi manajerial untuk mengelola kompleksitas, efisiensi sumber daya, dan mitigasi risiko.\nIni adalah disiplin yang memastikan kerja teknis terlaksana dalam kendali biaya, waktu, dan kualitas.",
+        "cta": [
+          { "text": "Pelajari Spektrum 4P", "link": "#spektrum", "icon": "users" }
+        ]
+      }
+    },
+    {
+      "section": "stats",
+      "caption": "Mengapa Manajemen Proyek PL Kritis?",
+      "content": [
+        { "nama": "Point", "isi": "Manajemen Proyek adalah yang membedakan proyek yang 'selesai dengan baik' dari proyek yang 'dibatalkan di tengah jalan' meski kualitas kodenya sama.", "icon": "info/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Reason", "isi": "Studi Standish Group (CHAOS Report) menunjukkan bahwa hanya 31% proyek software yang berhasil. 52% terlambat/overbudget, 17% dibatalkan.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Example", "isi": "Proyek Healthcare.gov (AS) diluncurkan 2013 dengan biaya $400 juta tapi crash di hari pertama — bukan karena kode buruk, tapi karena project management yang gagal.", "icon": "search/32x32/skyblue", "url": "#" },
+        { "nama": "Point (Penegasan)", "isi": "Seorang programmer hebat tanpa manajemen proyek adalah aset. Dengan manajemen proyek yang buruk, ia menjadi sumber kekacauan.", "icon": "check/32x32/green", "url": "#" }
+      ]
+    },
+    {
+      "section": "progress",
+      "caption": "Spektrum The 4 P's of Software Management",
+      "content": [
+        { "label": "People (Manusia)", "percent": 100, "value": "Pemilihan tim, struktur organisasi, motivasi, dan resolusi konflik." },
+        { "label": "Product (Produk)", "percent": 100, "value": "Definisi scope, dekomposisi fungsi, dan penentuan batas proyek." },
+        { "label": "Process (Proses)", "percent": 100, "value": "Pemilihan model SDLC yang tepat sesuai karakteristik proyek." },
+        { "label": "Project (Proyek)", "percent": 100, "value": "Seluruh aktivitas perencanaan dan pengendalian untuk pengiriman produk." }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "4 Aktivitas Utama Manajemen Proyek",
+      "content": [
+        { "Aktivitas": "Project Planning", "Deskripsi": "Mendefinisikan scope, task, milestone, dan estimasi biaya. Output: Project Plan Document." },
+        { "Aktivitas": "Project Scheduling", "Deskripsi": "Menyusun urutan dan durasi pekerjaan. Tools: Gantt Chart (Sederhana) atau PERT Chart (Kompleks)." },
+        { "Aktivitas": "Risk Management", "Deskripsi": "Mengidentifikasi risiko, menilai probabilitas & dampak, lalu membuat rencana mitigasi." },
+        { "Aktivitas": "Monitoring & Control", "Deskripsi": "Memantau progress aktual vs rencana. Tindakan korektif jika terjadi deviasi signifikan." }
+      ]
+    },
+    {
+      "section": "code",
+      "caption": "Contoh: Struktur Sederhana Risk Register",
+      "lang": "json",
+      "colorPreset": "monokai",
+      "lineNumbers": true,
+      "code": "{\n  \"project\": \"Sistem Informasi Akademik v2\",\n  \"risk_register\": [\n    {\n      \"id\": \"R01\",\n      \"deskripsi\": \"Kebutuhan pengguna berubah saat pengembangan\",\n      \"probabilitas\": \"Tinggi\",\n      \"dampak\": \"Tinggi\",\n      \"skor_risiko\": 9,\n      \"mitigasi\": \"Gunakan metodologi Agile dengan sprint review mingguan\",\n      \"pemilik\": \"Product Owner\"\n    },\n    {\n      \"id\": \"R02\",\n      \"deskripsi\": \"Anggota tim kunci resign di tengah proyek\",\n      \"probabilitas\": \"Sedang\",\n      \"dampak\": \"Tinggi\",\n      \"skor_risiko\": 6,\n      \"mitigasi\": \"Dokumentasi teknis wajib, pair programming untuk knowledge sharing\",\n      \"pemilik\": \"Project Manager\"\n    },\n    {\n      \"id\": \"R03\",\n      \"deskripsi\": \"Estimasi waktu terlalu optimis\",\n      \"probabilitas\": \"Tinggi\",\n      \"dampak\": \"Sedang\",\n      \"skor_risiko\": 6,\n      \"mitigasi\": \"Tambahkan buffer 20% pada setiap estimasi jadwal\",\n      \"pemilik\": \"Project Manager\"\n    }\n  ]\n}"
+    },
+    {
+      "section": "stats",
+      "caption": "Teknik Estimasi Proyek",
+      "content": [
+        { "nama": "LOC (Lines of Code)", "isi": "Estimasi berdasarkan jumlah baris kode yang diprediksi. Sederhana tapi kasar — kualitas tidak tercermin.", "icon": "code/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Function Point (FP)", "isi": "Mengukur fungsionalitas dari perspektif pengguna. Lebih akurat dan tidak bergantung bahasa pemrograman.", "icon": "check/32x32/green", "url": "#" },
+        { "nama": "COCOMO Model", "isi": "Model parametrik berbasis ukuran proyek (SLOC). Ada 3 level: Basic, Intermediate, dan Detailed.", "icon": "setting/32x32/skyblue", "url": "#" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Indikator Penilaian: 5%", "url": "#", "icon": "check" },
+        { "text": "Daftar Pustaka", "url": "#", "icon": "book" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Menu", "modal": "web/side/modules", "icon": "menu" },
+        { "text": "Kembali", "url": "web/page/modul03", "icon": "prev" },
+        { "text": "Lanjut", "url": "web/page/modul05", "icon": "next" }
+      ]
+    }
+  ]
+}

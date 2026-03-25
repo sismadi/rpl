@@ -1,0 +1,87 @@
+{
+  "page": "pertemuan_1_pengenalan_rpl",
+  "data": [
+    {
+      "section": "header",
+      "content": {
+        "nama": "Pertemuan 1: Pengenalan Rekayasa Perangkat Lunak",
+        "tagline": "Rekayasa Perangkat Lunak bukan sekadar menulis kode — ini tentang membangun solusi yang bisa diandalkan.",
+        "deskripsi": "Materi ini membangun fondasi pemahaman tentang definisi, karakteristik, dan aktivitas fundamental RPL.\nAnda akan memahami mengapa perangkat lunak diperlakukan berbeda dari produk manufaktur biasa.",
+        "cta": [
+          { "text": "Unduh Kontrak Kuliah", "link": "#", "icon": "book" }
+        ]
+      }
+    },
+    {
+      "section": "stats",
+      "caption": "Kontrak & Target Pembelajaran",
+      "content": [
+        { "nama": "Tujuan Akhir", "isi": "Memahami konsep, model proses, analisis, desain, hingga pengujian perangkat lunak secara sistematis.", "icon": "check/32x32/green", "url": "#" },
+        { "nama": "Penilaian", "isi": "Terdiri dari Tugas harian, Kuis mingguan, UTS (10%), dan UAS sebagai evaluasi komprehensif.", "icon": "user/32x32/skyblue", "url": "#" },
+        { "nama": "Sikap Profesional", "isi": "Menunjukkan tanggung jawab mandiri — datang tepat waktu, mengerjakan tugas sendiri, dan berani bertanya.", "icon": "users/32x32/var(--pColor)", "url": "#" }
+      ]
+    },
+    {
+      "section": "stats",
+      "caption": "Apa Itu Rekayasa Perangkat Lunak?",
+      "content": [
+        { "nama": "Point", "isi": "RPL adalah disiplin ilmu untuk membangun perangkat lunak secara sistematis, terukur, dan berkualitas.", "icon": "info/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Reason", "isi": "Tanpa pendekatan rekayasa, software menjadi 'kode spaghetti' — sulit dipelihara, penuh bug, dan mahal diperbaiki.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Example", "isi": "Proyek NASA Mars Orbiter 1999 gagal karena kesalahan satuan (pon vs newton) — bukan masalah kode, tapi proses rekayasa.", "icon": "search/32x32/skyblue", "url": "#" },
+        { "nama": "Point (Penegasan)", "isi": "RPL memastikan setiap baris kode memiliki tujuan, dapat diuji, dan dapat dipelihara oleh orang lain.", "icon": "check/32x32/green", "url": "#" }
+      ]
+    },
+    {
+      "section": "progress",
+      "caption": "3 Elemen Wajib Perangkat Lunak",
+      "content": [
+        { "label": "Instruksi (Program)", "percent": 100, "value": "Kode eksekusi yang menghasilkan fungsi & performa." },
+        { "label": "Struktur Data", "percent": 100, "value": "Representasi & manipulasi informasi secara efisien." },
+        { "label": "Dokumentasi", "percent": 100, "value": "Manual pengguna & dokumen teknis untuk keberlanjutan." }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "Karakteristik Unik Perangkat Lunak",
+      "content": [
+        { "Kategori": "Karakteristik", "Detail": "Developed, not Manufactured — direkayasa, bukan dipabrikasi seperti baut atau chip." },
+        { "Kategori": "Karakteristik", "Detail": "Does not Wear Out — tidak aus secara fisik, tapi kualitasnya bisa menurun akibat perubahan (software decay)." },
+        { "Kategori": "Karakteristik", "Detail": "Custom Built — sebagian besar masih dibangun khusus, meski tren komponen reusable terus berkembang." },
+        { "Kategori": "Aktivitas Proses", "Detail": "Software Specification — mendefinisikan batasan dan fungsi yang harus dipenuhi sistem." },
+        { "Kategori": "Aktivitas Proses", "Detail": "Software Development — merancang arsitektur dan menulis kode berdasarkan spesifikasi." },
+        { "Kategori": "Aktivitas Proses", "Detail": "Software Validation — memverifikasi bahwa sistem sesuai keinginan dan kebutuhan pelanggan." },
+        { "Kategori": "Aktivitas Proses", "Detail": "Software Evolution — memelihara dan mengembangkan sistem sesuai perubahan kebutuhan." }
+      ]
+    },
+    {
+      "section": "code",
+      "caption": "Analogi: Software vs Hardware Decay",
+      "lang": "js",
+      "colorPreset": "nord",
+      "lineNumbers": true,
+      "code": "// Hardware: Fisik aus seiring waktu\nfunction hardwareLifecycle() {\n  let quality = 100;\n  while (quality > 0) {\n    quality -= 1; // Aus secara linear\n  }\n  return 'Rusak total';\n}\n\n// Software: Tidak aus, tapi bisa 'membusuk' akibat perubahan\nfunction softwareDecay() {\n  let quality = 100;\n  const changes = ['patch_A', 'feature_B', 'hotfix_C'];\n\n  changes.forEach(change => {\n    if (!isWellEngineered(change)) {\n      quality -= 15; // Setiap perubahan buruk = penurunan kualitas\n    }\n  });\n\n  return `Kualitas tersisa: ${quality}%`;\n}\n\n// Kesimpulan: RPL hadir untuk memastikan isWellEngineered() = true"
+    },
+    {
+      "section": "stats",
+      "caption": "Mitos vs Realita dalam RPL",
+      "content": [
+        { "nama": "Mitos: 'Dokumen itu buang-buang waktu'", "isi": "Realita: 60% biaya proyek software adalah untuk pemeliharaan. Dokumentasi yang baik memangkas biaya ini secara drastis.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Mitos: 'Kita bisa tambah programmer untuk percepat'", "isi": "Realita: Hukum Brooks — menambah orang ke proyek yang terlambat justru semakin memperburuk keterlambatan.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Mitos: 'Software sudah jadi, tidak perlu diubah'", "isi": "Realita: Kebutuhan selalu berevolusi. Software yang tidak dirancang untuk berubah akan menjadi beban teknis.", "icon": "alert/32x32/skyblue", "url": "#" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "System Engineering Scope", "url": "#", "icon": "setting" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Menu", "modal": "web/side/modules", "icon": "menu" },
+        { "text": "Lanjut", "url": "web/page/modul02", "icon": "next" }
+      ]
+    }
+  ]
+}

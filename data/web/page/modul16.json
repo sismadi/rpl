@@ -1,0 +1,86 @@
+{
+  "page": "pertemuan_16_uas",
+  "data": [
+    {
+      "section": "header",
+      "content": {
+        "nama": "Evaluasi Akhir Semester (UAS)",
+        "tagline": "UAS bukan akhir — ini titik di mana Anda membuktikan bahwa Anda siap menjadi software engineer profesional.",
+        "deskripsi": "Evaluasi komprehensif yang menguji seluruh CPMK mata kuliah IMP307.\nUAS menitikberatkan pada kemampuan analisis teknis: Pemodelan, Desain, Pengujian, dan Penjaminan Mutu.",
+        "cta": [
+          { "text": "Mulai Ujian Akhir", "link": "#", "icon": "lock" }
+        ]
+      }
+    },
+    {
+      "section": "stats",
+      "caption": "Kesiapan Mental Menghadapi UAS",
+      "content": [
+        { "nama": "Point", "isi": "UAS IMP307 menguji kemampuan menganalisis kasus nyata dan menerapkan konsep RPL — bukan memori hafalan definisi dari buku.", "icon": "info/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Reason", "isi": "Industri tidak butuh engineer yang hafal teori. Industri butuh engineer yang bisa memutuskan: 'Kasus ini cocok dengan White Box atau Black Box? Model ini butuh Transform atau Transaction Mapping?'", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Example", "isi": "Soal UAS tipikal: 'Diberikan pseudocode berikut, hitung Cyclomatic Complexity dan buat minimal N test case yang mencakup semua independent path.' — Ini murni kemampuan analisis.", "icon": "search/32x32/skyblue", "url": "#" },
+        { "nama": "Point (Penegasan)", "isi": "Jawaban yang baik adalah yang menunjukkan proses berpikir sistematis, bukan hanya menyebut jawaban akhir. Jelaskan MENGAPA, bukan hanya APA.", "icon": "check/32x32/green", "url": "#" }
+      ]
+    },
+    {
+      "section": "stats",
+      "caption": "3 Fokus Materi Teknis UAS (CPMK 3, 4, & 5)",
+      "content": [
+        { "nama": "CPMK 3: Pemodelan & Desain", "isi": "DFD Leveling + Kamus Data, Transform/Transaction Mapping, Cohesion & Coupling, dan struktur SDD.", "icon": "code/32x32/var(--pColor)", "url": "#" },
+        { "nama": "CPMK 4: Strategi Pengujian", "isi": "White Box (Cyclomatic Complexity, Basis Path Testing) vs Black Box (BVA, Equivalence Partitioning, Decision Table).", "icon": "search/32x32/var(--pColor)", "url": "#" },
+        { "nama": "CPMK 5: Penjaminan Mutu", "isi": "SQA vs Testing, komponen SQA, FTR (mekanisme & output), metrik kualitas McCall, dan standar IEEE.", "icon": "check/32x32/var(--pColor)", "url": "#" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "Tipe Soal UAS & Strategi Menjawab",
+      "content": [
+        { "Tipe Soal": "Aplikasi Desain", "Contoh Kasus": "Buat struktur program dari DFD berikut menggunakan Transform Mapping.", "Strategi": "Identifikasi afferent flow, transform center, dan efferent flow. Buat hirarki modul." },
+        { "Tipe Soal": "Analisis White Box", "Contoh Kasus": "Hitung Cyclomatic Complexity dan buat test case untuk semua independent path.", "Strategi": "Gambar Flow Graph → Hitung V(G) = E-N+2P → Identifikasi path → Buat test case per path." },
+        { "Tipe Soal": "Analisis Black Box BVA", "Contoh Kasus": "Input: diskon voucher antara 5% - 50%. Buat test case BVA.", "Strategi": "Tentukan batas valid: min=5, max=50. Buat test case: 4, 5, 6, 49, 50, 51. Total 6 test case." },
+        { "Tipe Soal": "Evaluasi Kualitas", "Contoh Kasus": "Modul ProcessPayment memiliki 15 fungsi yang tidak berhubungan. Analisis masalahnya.", "Strategi": "Identifikasi sebagai Coincidental Cohesion. Jelaskan dampak (sulit test, debug, maintain). Rekomendasikan refactoring." },
+        { "Tipe Soal": "SQA Konseptual", "Contoh Kasus": "Tim menemukan 100 bug di fase akhir. Jelaskan dari perspektif SQA mengapa ini terjadi.", "Strategi": "SQA tidak diimplementasikan di awal. Tidak ada FTR, review berkala, atau standar koding. Jelaskan pencegahan." }
+      ]
+    },
+    {
+      "section": "code",
+      "caption": "Contoh Lengkap: Soal & Jawaban White Box Testing",
+      "lang": "js",
+      "colorPreset": "github-dark",
+      "lineNumbers": true,
+      "code": "// SOAL: Analisis fungsi berikut dengan White Box Testing\nfunction hitungBonus(penjualan, rating) {\n  let bonus = 0;\n\n  if (penjualan >= 10_000_000) {    // Keputusan 1 (D1)\n    bonus += 500_000;\n  }\n\n  if (rating >= 4.5) {              // Keputusan 2 (D2)\n    bonus += 250_000;\n  } else if (rating >= 3.5) {      // Keputusan 3 (D3)\n    bonus += 100_000;\n  }\n\n  return bonus;\n}\n\n// JAWABAN:\n\n// LANGKAH 1: Hitung Cyclomatic Complexity\n// Jumlah Keputusan (D1, D2, D3) = 3\n// V(G) = 3 + 1 = 4\n// → Minimal 4 test case dibutuhkan\n\n// LANGKAH 2: Identifikasi 4 Independent Path\n// Path 1: D1=false, D2=false, D3=false → bonus = 0\n// Path 2: D1=true,  D2=false, D3=false → bonus = 500.000\n// Path 3: D1=false, D2=true             → bonus = 250.000\n// Path 4: D1=false, D2=false, D3=true  → bonus = 100.000\n\n// LANGKAH 3: Buat Test Case\nconst testCases = [\n  { id:'TC1', penjualan: 5_000_000, rating: 3.0, expected: 0,       path: 'P1' },\n  { id:'TC2', penjualan: 15_000_000, rating: 3.0, expected: 500_000, path: 'P2' },\n  { id:'TC3', penjualan: 5_000_000, rating: 4.8, expected: 250_000, path: 'P3' },\n  { id:'TC4', penjualan: 5_000_000, rating: 4.0, expected: 100_000, path: 'P4' },\n];"
+    },
+    {
+      "section": "progress",
+      "caption": "Checklist Strategi Pengerjaan Ujian",
+      "content": [
+        { "label": "Gunakan terminologi standar Pressman dalam jawaban", "percent": 100, "value": "Wajib — menunjukkan penguasaan literatur" },
+        { "label": "Visualisasikan dengan diagram saat menjelaskan DFD atau Flow Graph", "percent": 90, "value": "Sangat Disarankan — nilai lebih tinggi" },
+        { "label": "Jelaskan keterkaitan antar tahap SDLC dalam jawaban kasus", "percent": 85, "value": "Kritikal — menunjukkan big picture thinking" },
+        { "label": "Gunakan format PREP dalam menjawab soal analisis", "percent": 80, "value": "Disarankan — jawaban lebih terstruktur" }
+      ]
+    },
+    {
+      "section": "stats",
+      "caption": "Informasi Penilaian UAS",
+      "content": [
+        { "nama": "Bobot Nilai", "isi": "UAS adalah evaluasi final dengan pengaruh paling besar terhadap nilai akhir mata kuliah IMP307.", "icon": "info/32x32/skyblue", "url": "#" },
+        { "nama": "Kriteria Lulus", "isi": "Ketepatan analisis teknis, kelengkapan jawaban, penggunaan terminologi standar, dan kemampuan memberikan justifikasi.", "icon": "user/32x32/green", "url": "#" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Review Materi Minggu 1-15", "url": "#", "icon": "book" },
+        { "text": "Hubungi Dosen Pengampu", "url": "#", "icon": "mail" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Menu", "modal": "web/side/modules", "icon": "menu" },
+        { "text": "Kembali", "url": "web/page/modul15", "icon": "prev" }
+      ]
+    }
+  ]
+}

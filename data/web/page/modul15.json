@@ -1,0 +1,91 @@
+{
+  "page": "pertemuan_15_review_akhir_integrasi",
+  "data": [
+    {
+      "section": "header",
+      "content": {
+        "nama": "Pertemuan 15: Review Akhir & Integrasi Kualitas",
+        "tagline": "Memahami bagaimana semua puzzle RPL menyatu adalah kompetensi paling berharga yang bisa Anda miliki.",
+        "deskripsi": "Sesi integrasi pengetahuan dari Pertemuan 9–14 — dari pemodelan hingga penjaminan mutu.\nFokus pada 'The Big Picture': bagaimana setiap fase berkontribusi pada produk software berkualitas.",
+        "cta": [
+          { "text": "Mulai Kuis Komprehensif", "link": "#kuis", "icon": "book" }
+        ]
+      }
+    },
+    {
+      "section": "stats",
+      "caption": "Mengapa 'The Big Picture' Lebih Penting dari Detail Teknis?",
+      "content": [
+        { "nama": "Point", "isi": "Memahami koneksi antar fase — mengapa output satu fase menjadi input fase berikutnya — lebih bernilai daripada hafal semua sintaks dan definisi.", "icon": "info/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Reason", "isi": "Dunia kerja nyata jarang meminta Anda menggambar DFD dari nol. Tapi selalu meminta Anda memahami mengapa sistem gagal, di fase mana, dan bagaimana mencegahnya.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Example", "isi": "Developer berpengalaman yang tahu 'Testing dini = hemat biaya 10x' akan menolak skip testing. Tanpa big picture ini, ia mungkin skip testing karena 'deadline mepet'.", "icon": "search/32x32/skyblue", "url": "#" },
+        { "nama": "Point (Penegasan)", "isi": "RPL adalah disiplin integratif. Setiap konsep yang dipelajari adalah bagian dari satu ekosistem yang saling mendukung.", "icon": "check/32x32/green", "url": "#" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "The Big Picture: Integrasi Penuh SDLC",
+      "content": [
+        { "Fase": "Analisis Kebutuhan (P6)", "Output Utama": "SRS — Kontrak teknis antara klien dan developer.", "Menjadi Input Untuk": "Fase Desain (SDD)." },
+        { "Fase": "Pemodelan (P9)", "Output Utama": "DFD + Kamus Data — Representasi visual aliran data.", "Menjadi Input Untuk": "Desain Arsitektural dan Data." },
+        { "Fase": "Desain (P10-P12)", "Output Utama": "SDD — Cetak biru lengkap sistem.", "Menjadi Input Untuk": "Fase Coding dan Test Planning." },
+        { "Fase": "Pengujian (P13)", "Output Utama": "Test Report — Bukti bahwa sistem memenuhi SRS.", "Menjadi Input Untuk": "Acceptance Testing dan Deployment." },
+        { "Fase": "SQA (P14)", "Output Utama": "Audit Report — Konfirmasi proses dilakukan dengan standar.", "Menjadi Input Untuk": "Peningkatan proses proyek berikutnya (Lessons Learned)." }
+      ]
+    },
+    {
+      "section": "code",
+      "caption": "Peta Koneksi Dokumen Antar Fase",
+      "lang": "bash",
+      "colorPreset": "monokai",
+      "lineNumbers": false,
+      "code": "# ALUR DOKUMEN DALAM SDLC — Bagaimana mereka terhubung\n\n[Klien] ──── wawancara/observasi ────→ ELICITATION\n                                           │\n                                           ▼\n                              [SRS: Software Req. Spec]\n                              'APA yang harus dibangun'\n                                           │\n                          ┌────────────────┤\n                          │                │\n                          ▼                ▼\n                  [DFD + Kamus Data]   [Test Plan]\n                  'Bagaimana data     'Bagaimana kita\n                   mengalir'           akan mengujinya'\n                          │\n                          ▼\n                 [SDD: Software Design Doc]\n                 'BAGAIMANA membangunnya'\n                          │\n                          ▼\n                     [SOURCE CODE]\n                          │\n                          ▼\n                 [Test Report: Test Plan dieksekusi]\n                 'Apakah SRS terpenuhi?'\n                          │\n                          ▼\n               [SQA Audit Report]\n               'Apakah prosesnya benar?'\n                          │\n                          ▼\n                   [DEPLOYMENT]\n                 Software siap ke pengguna"
+    },
+    {
+      "section": "stats",
+      "caption": "3 Pilar Teknis yang Harus Dikuasai untuk UAS",
+      "content": [
+        { "nama": "Pemodelan & Desain", "isi": "DFD Leveling (Konteks → L1 → L2), Kamus Data, Transform vs Transaction Mapping, dan metrik High Cohesion + Low Coupling.", "icon": "code/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Strategi Pengujian", "isi": "Hirarki Unit→Integration→System→Acceptance, White Box (Cyclomatic Complexity), Black Box (BVA, Equivalence Partitioning).", "icon": "search/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Penjaminan Mutu", "isi": "SQA vs Testing (perbedaan mendasar), FTR (mekanisme, aturan, output), dan 4 metrik kualitas McCall.", "icon": "check/32x32/var(--pColor)", "url": "#" }
+      ]
+    },
+    {
+      "section": "progress",
+      "caption": "Checklist Kesiapan UAS",
+      "content": [
+        { "label": "Mampu gambar DFD Level 0 dan Level 1 dari kasus", "percent": 100, "value": "Wajib Kuasai — hampir pasti muncul" },
+        { "label": "Mampu hitung Cyclomatic Complexity & buat path test", "percent": 90, "value": "Sangat Penting — teknis white box" },
+        { "label": "Mampu buat test case BVA dari spesifikasi input", "percent": 90, "value": "Sangat Penting — teknis black box" },
+        { "label": "Mampu bedakan Transform vs Transaction Mapping", "percent": 85, "value": "Kritikal — DFD ke struktur program" },
+        { "label": "Mampu jelaskan FTR: mekanisme & manfaatnya", "percent": 80, "value": "Penting — SQA conceptual" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "Pertanyaan Latihan Komprehensif",
+      "content": [
+        { "No": "1", "Soal": "Gambarkan DFD Level 1 untuk sistem kasir mini-market. Identifikasi minimal 4 proses dan 2 data store." },
+        { "No": "2", "Soal": "Fungsi A memiliki 3 keputusan if-else dan 1 loop. Berapa Cyclomatic Complexity-nya? Buat minimal 4 test case." },
+        { "No": "3", "Soal": "Input form: usia 17-60 tahun. Buat 7 test case BVA yang mencakup semua nilai batas." },
+        { "No": "4", "Soal": "Jelaskan perbedaan antara modul dengan 'Functional Cohesion' vs 'Coincidental Cohesion'. Berikan contoh konkret." },
+        { "No": "5", "Soal": "Sebuah tim menemukan 50 bug di fase System Testing. Dari perspektif SQA, apa akar masalahnya dan bagaimana mencegahnya di proyek berikutnya?" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Unduh Rangkuman Materi", "url": "#", "icon": "book" },
+        { "text": "Simulasi Soal UAS", "url": "#", "icon": "lock" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Menu", "modal": "web/side/modules", "icon": "menu" },
+        { "text": "Kembali", "url": "web/page/modul14", "icon": "prev" },
+        { "text": "Lanjut", "url": "web/page/modul16", "icon": "next" }
+      ]
+    }
+  ]
+}

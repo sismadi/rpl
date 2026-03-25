@@ -1,0 +1,89 @@
+{
+  "page": "pertemuan_2_pendalaman_rpl",
+  "data": [
+    {
+      "section": "header",
+      "content": {
+        "nama": "Pertemuan 2: Pendalaman Perangkat Lunak & Rekayasa Sistem",
+        "tagline": "Perangkat lunak bukan hanya aplikasi di layar — ia adalah tulang punggung ekosistem teknologi modern.",
+        "deskripsi": "Fokus pada peran ganda perangkat lunak sebagai produk dan pengendali, serta bagaimana Rekayasa Sistem mengintegrasikan hardware, software, manusia, dan data menjadi satu kesatuan.",
+        "cta": [
+          { "text": "Lihat Indikator Penilaian", "link": "#indikator", "icon": "info" }
+        ]
+      }
+    },
+    {
+      "section": "stats",
+      "caption": "Peran Ganda Perangkat Lunak",
+      "content": [
+        { "nama": "Point", "isi": "Perangkat lunak berperan ganda: sebagai Produk yang digunakan, dan sebagai Pengendali (Vehicle) yang menjalankan produk lain.", "icon": "info/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Reason", "isi": "Memahami peran ini penting agar insinyur tahu kapan mereka membangun 'nilai langsung' untuk pengguna, dan kapan membangun 'infrastruktur' untuk sistem lain.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Example", "isi": "Microsoft Excel = Produk (nilai langsung ke pengguna). Linux Kernel = Pengendali (kendali hardware & menjadi fondasi OS lain).", "icon": "search/32x32/skyblue", "url": "#" },
+        { "nama": "Point (Penegasan)", "isi": "Setiap keputusan desain harus diawali dengan pertanyaan: 'Software ini adalah produk atau pengendali?'", "icon": "check/32x32/green", "url": "#" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "Kategori Perangkat Lunak Modern",
+      "content": [
+        { "Kategori": "System Software", "Contoh": "OS, Driver, Compiler", "Fungsi": "Melayani program lain, bukan pengguna akhir secara langsung." },
+        { "Kategori": "Application Software", "Contoh": "Word, Shopee, Zoom", "Fungsi": "Memecahkan masalah bisnis atau personal pengguna akhir." },
+        { "Kategori": "Engineering/Scientific", "Contoh": "AutoCAD, MATLAB", "Fungsi": "Kalkulasi numerik dan simulasi intensif." },
+        { "Kategori": "Embedded Software", "Contoh": "Firmware AC, ECU Mobil", "Fungsi": "Mengontrol hardware spesifik dalam produk fisik." },
+        { "Kategori": "Web/Mobile App", "Contoh": "Tokopedia, Instagram", "Fungsi": "Layanan berbasis jaringan dan perangkat genggam." },
+        { "Kategori": "AI Software", "Contoh": "ChatGPT, Gemini", "Fungsi": "Sistem cerdas berbasis data dan model prediktif." }
+      ]
+    },
+    {
+      "section": "progress",
+      "caption": "4 Aktivitas Fundamental Proses RPL",
+      "content": [
+        { "label": "1. Specification (Spesifikasi)", "percent": 25, "value": "Definisi fungsi & batasan sistem yang akan dibangun." },
+        { "label": "2. Development (Pengembangan)", "percent": 50, "value": "Perancangan arsitektur dan penulisan kode program." },
+        { "label": "3. Validation (Validasi)", "percent": 75, "value": "Pengujian untuk memastikan sistem sesuai kebutuhan klien." },
+        { "label": "4. Evolution (Evolusi)", "percent": 100, "value": "Pemeliharaan dan pengembangan lanjut pasca-rilis." }
+      ]
+    },
+    {
+      "section": "stats",
+      "caption": "Rekayasa Sistem: Gambaran Besar",
+      "content": [
+        { "nama": "Definisi", "isi": "System Engineering adalah pendekatan interdisipliner untuk mewujudkan sistem yang berhasil — mencakup HW, SW, manusia, prosedur, dan data.", "icon": "setting/32x32/skyblue", "url": "#" },
+        { "nama": "Hierarki Sistem", "isi": "World > Domain > System > Subsystem > Software. RPL bekerja di level Software, tapi harus memahami level di atasnya.", "icon": "menu/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Implikasi Praktis", "isi": "Seorang software engineer yang tidak memahami domain bisnis klien akan membangun sistem yang 'benar secara teknis tapi salah secara kebutuhan'.", "icon": "alert/32x32/skyblue", "url": "#" }
+      ]
+    },
+    {
+      "section": "code",
+      "caption": "Contoh: Produk vs Pengendali dalam Kode",
+      "lang": "js",
+      "colorPreset": "dracula",
+      "lineNumbers": true,
+      "code": "// SOFTWARE SEBAGAI PRODUK\n// Memberikan nilai langsung ke pengguna\nfunction kalkulatorGaji(gajiPokok, tunjangan, potongan) {\n  const total = gajiPokok + tunjangan - potongan;\n  return `Gaji bersih: Rp ${total.toLocaleString('id-ID')}`;\n}\n\n// SOFTWARE SEBAGAI PENGENDALI\n// Mengatur sistem lain agar berjalan\nclass DatabaseController {\n  connect(host, port) {\n    // Mengontrol koneksi ke DB engine\n    return `Terhubung ke ${host}:${port}`;\n  }\n\n  query(sql) {\n    // Mengendalikan eksekusi query\n    return this.engine.execute(sql);\n  }\n}\n\n// Keduanya adalah 'perangkat lunak', tapi tujuan & desainnya SANGAT BERBEDA"
+    },
+    {
+      "section": "table",
+      "caption": "Produk vs Proses dalam RPL",
+      "content": [
+        { "Aspek": "Produk", "Deskripsi": "Hasil akhir yang diserahkan: program, dokumen, dan data yang memiliki nilai bagi pelanggan." },
+        { "Aspek": "Proses", "Deskripsi": "Cara dan metode untuk membangun produk: standar, alat, dan praktik yang digunakan tim." },
+        { "Aspek": "Hubungan Keduanya", "Deskripsi": "Proses yang baik menghasilkan produk yang baik. Proses buruk akan selalu menghasilkan produk bermasalah." }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Ide Proyek Mandiri", "url": "#", "icon": "search" },
+        { "text": "Bobot Nilai: 5%", "url": "#", "icon": "check" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Menu", "modal": "web/side/modules", "icon": "menu" },
+        { "text": "Kembali", "url": "web/page/modul01", "icon": "prev" },
+        { "text": "Lanjut", "url": "web/page/modul03", "icon": "next" }
+      ]
+    }
+  ]
+}

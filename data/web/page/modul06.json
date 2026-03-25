@@ -1,0 +1,96 @@
+{
+  "page": "pertemuan_6_analysis_rekayasa_kebutuhan",
+  "data": [
+    {
+      "section": "header",
+      "content": {
+        "nama": "Pertemuan 6: Analysis dan Rekayasa Kebutuhan",
+        "tagline": "Membangun sistem yang salah dengan sempurna adalah kegagalan terbesar dalam rekayasa perangkat lunak.",
+        "deskripsi": "Rekayasa Kebutuhan adalah tahap paling krusial namun paling sering diremehkan.\nKesalahan di sini menjadi akar dari 70% kegagalan proyek software di seluruh dunia.",
+        "cta": [
+          { "text": "Pelajari Konsep", "link": "#konsep", "icon": "book" }
+        ]
+      }
+    },
+    {
+      "section": "stats",
+      "caption": "Mengapa Rekayasa Kebutuhan adalah Fondasi Segalanya?",
+      "content": [
+        { "nama": "Point", "isi": "Rekayasa Kebutuhan adalah proses mendefinisikan APA yang harus dilakukan sistem — bukan bagaimana. Tanpa ini, tim membangun sesuatu yang mungkin tidak dibutuhkan siapapun.", "icon": "info/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Reason", "isi": "Biaya memperbaiki requirement yang salah di fase analisis adalah 1x. Di fase pengujian = 50x. Di fase produksi (sudah rilis) = 200x. Investasi di sini selalu menguntungkan.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Example", "isi": "Sistem Bima Sakti BPJS Ketenagakerjaan sempat bermasalah karena fitur klaim online tidak sesuai kebutuhan aktual petugas — requirement gap yang mahal.", "icon": "search/32x32/skyblue", "url": "#" },
+        { "nama": "Point (Penegasan)", "isi": "Dokumen kebutuhan yang baik (SRS) adalah kontrak teknis antara klien dan developer. Ia melindungi kedua pihak dari saling menyalahkan.", "icon": "check/32x32/green", "url": "#" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "Functional vs Non-Functional Requirements",
+      "content": [
+        { "Tipe": "Functional Requirements", "Definisi": "APA yang harus dilakukan sistem", "Contoh": "'Sistem harus bisa memproses login dengan username dan password.'" },
+        { "Tipe": "Non-Functional Requirements", "Definisi": "SEBERAPA BAIK sistem harus melakukannya", "Contoh": "'Sistem harus merespons login dalam < 2 detik dengan 1000 user konkuren.'" },
+        { "Tipe": "Domain Requirements", "Definisi": "Aturan spesifik domain bisnis/industri", "Contoh": "'Sistem perbankan harus mematuhi regulasi OJK tentang enkripsi data nasabah.'" }
+      ]
+    },
+    {
+      "section": "stats",
+      "caption": "3 Area Analisis Utama",
+      "content": [
+        { "nama": "Analisis Masalah", "isi": "Mengidentifikasi akar masalah (root cause) yang ingin diselesaikan. Gunakan teknik 5-Why atau Fishbone Diagram.", "icon": "search/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Analisis Domain", "isi": "Memahami konteks bisnis dan lingkungan tempat software akan hidup. Tanpa ini, solusi teknis bisa benar tapi tidak relevan.", "icon": "home/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Analisis Persyaratan", "isi": "Mengumpulkan, mendefinisikan, dan memprioritaskan kebutuhan spesifik dari semua stakeholder yang terlibat.", "icon": "users/32x32/var(--pColor)", "url": "#" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "Teknik Elicitation (Penggalian Kebutuhan)",
+      "content": [
+        { "Teknik": "Interview", "Kapan Digunakan": "Kebutuhan kompleks, butuh detail mendalam dari stakeholder kunci", "Hasil": "Pemahaman mendalam tapi bergantung pada kualitas pertanyaan." },
+        { "Teknik": "Questionnaire", "Kapan Digunakan": "Stakeholder banyak dan tersebar, butuh data kuantitatif", "Hasil": "Data statistik tapi kurang mendalam." },
+        { "Teknik": "Observation", "Kapan Digunakan": "Proses bisnis yang kompleks dan sulit dijelaskan", "Hasil": "Insight nyata tapi memerlukan waktu." },
+        { "Teknik": "Use Case", "Kapan Digunakan": "Mendefinisikan interaksi user-system secara visual", "Hasil": "Gambaran jelas alur fungsional sistem." },
+        { "Teknik": "Prototyping", "Kapan Digunakan": "Kebutuhan belum jelas, user kesulitan berartikulasi", "Hasil": "Feedback konkret, tapi bisa salah dipersepsikan sebagai produk final." }
+      ]
+    },
+    {
+      "section": "code",
+      "caption": "Contoh: Penulisan SRS yang Baik vs Buruk",
+      "lang": "js",
+      "colorPreset": "github-dark",
+      "lineNumbers": true,
+      "code": "// ❌ SRS YANG BURUK — Ambigu dan tidak terukur\nconst buruk = {\n  req_01: \"Sistem harus cepat.\",\n  req_02: \"Tampilan harus bagus dan modern.\",\n  req_03: \"Sistem harus aman dari hacker.\"\n};\n// Masalah: 'Cepat' berapa ms? 'Bagus' menurut siapa? 'Aman' standarnya apa?\n\n// ✅ SRS YANG BAIK — Spesifik, Terukur, Dapat Diuji\nconst bagus = {\n  req_01: {\n    id: 'FR-001',\n    deskripsi: 'Halaman dashboard harus ter-load dalam < 3 detik',\n    kondisi: 'pada koneksi 10 Mbps dengan 500 user konkuren',\n    kriteria_uji: 'Load test menggunakan Apache JMeter dengan threshold 3000ms'\n  },\n  req_02: {\n    id: 'NFR-001',\n    deskripsi: 'UI mengikuti Design System Material Design 3.0',\n    referensi: 'https://m3.material.io',\n    kriteria_uji: 'UI review dengan checklist 45 poin aksesibilitas WCAG 2.1'\n  },\n  req_03: {\n    id: 'NFR-002',\n    deskripsi: 'Password di-hash menggunakan bcrypt dengan cost factor >= 12',\n    kriteria_uji: 'Security audit oleh tim QA menggunakan OWASP Top 10 checklist'\n  }\n};"
+    },
+    {
+      "section": "progress",
+      "caption": "Prinsip-Prinsip Analisis Kebutuhan",
+      "content": [
+        { "label": "Domain Informasi — Pahami aliran data", "percent": 100, "value": "Apa data yang masuk, diproses, dan keluar dari sistem?" },
+        { "label": "Fungsi — Definisikan transformasi", "percent": 100, "value": "Apa yang dilakukan sistem terhadap data tersebut?" },
+        { "label": "Tingkah Laku — Respons terhadap kejadian", "percent": 100, "value": "Bagaimana sistem bereaksi terhadap input dan event eksternal?" },
+        { "label": "Partisi Model — Hierarkis", "percent": 100, "value": "Pecah model besar menjadi sub-model yang lebih kecil dan terkelola." }
+      ]
+    },
+    {
+      "section": "stats",
+      "caption": "Validasi Kebutuhan",
+      "content": [
+        { "nama": "Formal Technical Review (FTR)", "isi": "Tim developer dan klien mereview dokumen SRS bersama untuk menemukan inkonsistensi, ambiguitas, dan gap kebutuhan.", "icon": "check/32x32/green", "url": "#" },
+        { "nama": "Prototype Validation", "isi": "Buat prototipe cepat (mockup/wireframe) dan minta feedback pengguna sebelum implementasi penuh dimulai.", "icon": "setting/32x32/skyblue", "url": "#" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Diskusi & Tanya Jawab", "url": "mailto:admin@edu.com", "icon": "mail" },
+        { "text": "Persiapan DFD (Pertemuan 9)", "url": "#", "icon": "code" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Menu", "modal": "web/side/modules", "icon": "menu" },
+        { "text": "Kembali", "url": "web/page/modul05", "icon": "prev" },
+        { "text": "Lanjut", "url": "web/page/modul07", "icon": "next" }
+      ]
+    }
+  ]
+}

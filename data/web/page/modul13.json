@@ -1,0 +1,102 @@
+{
+  "page": "pertemuan_13_strategi_teknik_pengujian_pl",
+  "data": [
+    {
+      "section": "header",
+      "content": {
+        "nama": "Pertemuan 13: Strategi dan Teknik Pengujian Perangkat Lunak",
+        "tagline": "Pengujian bukan untuk membuktikan software benar — tapi untuk menemukan bahwa software salah.",
+        "deskripsi": "Filosofi ini dari Dijkstra mengubah cara pandang testing: dari formalitas menuju investigasi sistematis.\nSemakin dini bug ditemukan, semakin murah biaya perbaikannya.",
+        "cta": [
+          { "text": "Eksplorasi Teknik Uji", "link": "#teknik", "icon": "search" }
+        ]
+      }
+    },
+    {
+      "section": "stats",
+      "caption": "Mengapa Pengujian Sistematis Wajib Dilakukan?",
+      "content": [
+        { "nama": "Point", "isi": "Pengujian perangkat lunak adalah proses terencana untuk menemukan kesalahan (defect) dalam sistem sebelum sampai ke pengguna akhir.", "icon": "info/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Reason", "isi": "Bug yang ditemukan di fase testing biayanya 10x lebih murah dibanding yang ditemukan pengguna di produksi. Bug di sistem kritis (perbankan, medis) bisa berdampak fatal.", "icon": "alert/32x32/skyblue", "url": "#" },
+        { "nama": "Example", "isi": "Therac-25 (1986) — mesin radiasi medis yang membunuh pasien akibat race condition. Tidak terdeteksi karena testing tidak mencakup skenario concurrent access.", "icon": "search/32x32/skyblue", "url": "#" },
+        { "nama": "Point (Penegasan)", "isi": "Testing tanpa strategi = testing tanpa nilai. Testcase yang dirancang dengan baik menemukan lebih banyak bug daripada testcase acak sebanyak 10x lipat.", "icon": "check/32x32/green", "url": "#" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "Hierarki Strategi Pengujian (V-Model)",
+      "content": [
+        { "Level": "Unit Testing", "Fokus": "Menguji satu fungsi/modul secara terisolasi", "Siapa": "Developer", "Tools": "Jest, JUnit, PHPUnit" },
+        { "Level": "Integration Testing", "Fokus": "Menguji interaksi antar modul yang sudah digabungkan", "Siapa": "Developer / QA", "Tools": "Postman, REST Assured" },
+        { "Level": "System Testing", "Fokus": "Menguji sistem lengkap sesuai spesifikasi teknis", "Siapa": "QA Engineer", "Tools": "Selenium, Cypress" },
+        { "Level": "Acceptance Testing", "Fokus": "Memvalidasi bahwa sistem sesuai kebutuhan bisnis klien", "Siapa": "Klien / End User", "Tools": "Manual / User Story scenarios" }
+      ]
+    },
+    {
+      "section": "stats",
+      "caption": "Dua Teknik Utama Pengujian",
+      "content": [
+        { "nama": "White Box Testing", "isi": "Menguji struktur INTERNAL kode: logika, cabang, path, kondisi. Tester harus bisa membaca kode. Analogi: Montir yang membuka kap mesin.", "icon": "code/32x32/var(--pColor)", "url": "#" },
+        { "nama": "Black Box Testing", "isi": "Menguji FUNGSIONALITAS berdasarkan input/output tanpa melihat kode. Fokus pada 'apakah sistem berperilaku sesuai kebutuhan?'. Analogi: Penumpang yang menguji fitur mobil.", "icon": "lock/32x32/var(--pColor)", "url": "#" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "Metode White Box Testing",
+      "content": [
+        { "Metode": "Basis Path Testing", "Cara Kerja": "Gambar Flow Graph dari kode, hitung Cyclomatic Complexity (V(G) = E - N + 2P), buat test case untuk setiap independent path.", "Coverage": "100% path coverage" },
+        { "Metode": "Condition Testing", "Cara Kerja": "Uji setiap kondisi boolean (true/false) di dalam kode secara individual.", "Coverage": "Branch coverage" },
+        { "Metode": "Loop Testing", "Cara Kerja": "Uji loop dengan: 0 iterasi, 1 iterasi, 2 iterasi, dan batas maksimum.", "Coverage": "Loop boundary coverage" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "Metode Black Box Testing",
+      "content": [
+        { "Metode": "Equivalence Partitioning", "Cara Kerja": "Bagi input ke kelas ekuivalen (valid dan invalid), pilih satu representasi per kelas.", "Contoh": "Input umur 0-17 (invalid), 18-65 (valid), >65 (invalid) = 3 test case." },
+        { "Metode": "Boundary Value Analysis (BVA)", "Cara Kerja": "Fokus pada nilai tepat di batas kelas: min-1, min, min+1, max-1, max, max+1.", "Contoh": "Batas umur 18: uji nilai 17, 18, 19 dan 64, 65, 66." },
+        { "Metode": "Decision Table Testing", "Cara Kerja": "Buat tabel semua kombinasi kondisi dan aksi yang dihasilkan.", "Contoh": "Login: benar/salah × status aktif/nonaktif = 4 kombinasi test." }
+      ]
+    },
+    {
+      "section": "code",
+      "caption": "Contoh: Menghitung Cyclomatic Complexity (White Box)",
+      "lang": "js",
+      "colorPreset": "github-dark",
+      "lineNumbers": true,
+      "code": "// Fungsi yang akan dianalisis\nfunction hitungDiskon(harga, member, kodPromo) {\n  let diskon = 0;\n\n  if (member === true) {          // Keputusan 1\n    diskon += 10;\n  }\n\n  if (kodPromo === 'SAVE20') {    // Keputusan 2\n    diskon += 20;\n  } else if (kodPromo === 'VIP') { // Keputusan 3\n    diskon += 30;\n  }\n\n  if (harga > 500_000) {          // Keputusan 4\n    diskon += 5;\n  }\n\n  return harga * (1 - diskon / 100);\n}\n\n// ANALISIS CYCLOMATIC COMPLEXITY:\n// V(G) = Jumlah Keputusan + 1\n// V(G) = 4 keputusan + 1 = 5\n\n// Artinya: Butuh MINIMAL 5 test case untuk cover semua path:\n// Path 1: member=false, promo=null,    harga=100.000  → diskon 0%\n// Path 2: member=true,  promo=null,    harga=100.000  → diskon 10%\n// Path 3: member=false, promo=SAVE20,  harga=100.000  → diskon 20%\n// Path 4: member=false, promo=VIP,     harga=100.000  → diskon 30%\n// Path 5: member=false, promo=null,    harga=600.000  → diskon 5%"
+    },
+    {
+      "section": "code",
+      "caption": "Contoh: Boundary Value Analysis (BVA) untuk Input Form",
+      "lang": "js",
+      "colorPreset": "nord",
+      "lineNumbers": true,
+      "code": "// Aturan sistem: Nilai mahasiswa harus antara 0 dan 100\nfunction validateNilai(nilai) {\n  if (nilai < 0 || nilai > 100) {\n    throw new Error('Nilai harus antara 0 dan 100');\n  }\n  return true;\n}\n\n// BVA TEST CASES — Fokus pada BATAS nilai valid\nconst bvaTestCases = [\n  { input: -1,  expected: 'ERROR',  alasan: 'Batas bawah - 1 (tepat di luar batas)' },\n  { input: 0,   expected: 'VALID',  alasan: 'Batas bawah minimum (tepat di batas)' },\n  { input: 1,   expected: 'VALID',  alasan: 'Batas bawah + 1 (tepat di dalam batas)' },\n  { input: 50,  expected: 'VALID',  alasan: 'Nilai tengah (nominal)' },\n  { input: 99,  expected: 'VALID',  alasan: 'Batas atas - 1 (tepat di dalam batas)' },\n  { input: 100, expected: 'VALID',  alasan: 'Batas atas maksimum (tepat di batas)' },\n  { input: 101, expected: 'ERROR',  alasan: 'Batas atas + 1 (tepat di luar batas)' },\n];\n\n// BVA hanya 7 test case, tapi mencakup semua batas kritis!\n// Testing nilai 50 saja tidak menemukan bug di batas 0 atau 100."
+    },
+    {
+      "section": "progress",
+      "caption": "Indikator Penilaian & Persiapan",
+      "content": [
+        { "label": "Mampu menghitung Cyclomatic Complexity", "percent": 85, "value": "White Box — Teknis, Sering Diuji" },
+        { "label": "Mampu membuat test case BVA", "percent": 90, "value": "Black Box — Hampir Selalu Masuk UAS" },
+        { "label": "Pahami perbedaan Unit vs Integration Testing", "percent": 80, "value": "Konsep — Dasar Pengujian" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Latihan Soal Kasus Uji", "url": "#", "icon": "search" },
+        { "text": "Diskusi Metode BVA", "url": "#", "icon": "users" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Menu", "modal": "web/side/modules", "icon": "menu" },
+        { "text": "Kembali", "url": "web/page/modul12", "icon": "prev" },
+        { "text": "Lanjut", "url": "web/page/modul14", "icon": "next" }
+      ]
+    }
+  ]
+}

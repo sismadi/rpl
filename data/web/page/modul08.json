@@ -1,0 +1,77 @@
+{
+  "page": "pertemuan_8_uts",
+  "data": [
+    {
+      "section": "header",
+      "content": {
+        "nama": "Evaluasi Tengah Semester (UTS)",
+        "tagline": "UTS bukan ujian hafalan — ini ujian kemampuan Anda menganalisis situasi nyata.",
+        "deskripsi": "Evaluasi formal yang mengukur penguasaan materi Pertemuan 1–7.\nFokus pada CPMK 1 & 2: konsep dasar RPL, studi kelayakan, manajemen proyek, dan pemilihan model SDLC.",
+        "cta": [
+          { "text": "Mulai Ujian Online", "link": "#", "icon": "lock" }
+        ]
+      }
+    },
+    {
+      "section": "stats",
+      "caption": "Kisi-Kisi Utama yang Wajib Dikuasai",
+      "content": [
+        { "nama": "CPMK 1: Konsep Dasar & SDLC", "isi": "Definisi PL, karakteristik 'engineered not manufactured', dan kemampuan memilih model proses (Waterfall/Spiral/Agile) berdasarkan kasus.", "icon": "code/32x32/var(--pColor)", "url": "#" },
+        { "nama": "CPMK 2: Kelayakan & Kebutuhan", "isi": "Analisis aspek Teknis, Ekonomi, Operasional (PIECES), serta pemahaman dokumen SRS dan perbedaan Functional vs Non-Functional Requirements.", "icon": "search/32x32/var(--pColor)", "url": "#" },
+        { "nama": "CPMK 2: Manajemen (4P)", "isi": "Penguasaan spektrum People, Product, Process, Project dan implikasinya dalam mengelola proyek software nyata.", "icon": "users/32x32/var(--pColor)", "url": "#" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "Strategi Menjawab Berdasarkan Tipe Soal",
+      "content": [
+        { "Tipe Soal": "Analisis Kasus", "Strategi": "Identifikasi variabel kasus (kepastian kebutuhan, risiko, ukuran tim), lalu rekomendasikan model SDLC dengan justifikasi." },
+        { "Tipe Soal": "Komparasi", "Strategi": "Gunakan tabel mental: buat 2-3 poin perbedaan fundamental, bukan persamaan superfisial." },
+        { "Tipe Soal": "Definisi Teknis", "Strategi": "Definisi + Contoh konkret + Alasan mengapa konsep ini penting. Jangan hanya menulis ulang definisi buku." },
+        { "Tipe Soal": "Pemecahan Masalah", "Strategi": "Gunakan framework PIECES atau 4P sebagai struktur jawaban — menunjukkan penguasaan metodologi." }
+      ]
+    },
+    {
+      "section": "code",
+      "caption": "Contoh Jawaban Soal Analisis Kasus",
+      "lang": "bash",
+      "colorPreset": "monokai",
+      "lineNumbers": false,
+      "code": "# SOAL: Startup FinTech baru ingin membangun aplikasi pembayaran.\n# Kebutuhan berubah cepat, tim 5 orang, deadline 6 bulan.\n# Model SDLC apa yang paling cocok? Jelaskan.\n\n# JAWABAN IDEAL (Gunakan struktur PREP):\n\n# POINT:\nRekomendasi: Agile/Scrum\n\n# REASON:\n- Kebutuhan dinamis → Waterfall tidak cocok (kaku)\n- Tim kecil (5 orang) → Komunikasi informal, ideal untuk Agile\n- Deadline pendek → Sprint 2 minggu = rilis inkremental tiap bulan\n- Domain FinTech = feedback user sangat kritikal → Agile memaksimalkan ini\n\n# EXAMPLE:\nSprint 1 (2 minggu): Login + Register\nSprint 2 (2 minggu): Transfer Uang\nSprint 3 (2 minggu): Top Up & History\n→ Setelah Sprint 3 sudah ada MVP yang bisa diuji pengguna nyata\n\n# POINT (Penegasan):\nAgile memungkinkan startup merespons perubahan pasar dengan cepat\ntanpa harus merombak seluruh rencana proyek."
+    },
+    {
+      "section": "progress",
+      "caption": "Checklist Persiapan Mandiri",
+      "content": [
+        { "label": "Perbedaan Functional vs Non-Functional Requirements", "percent": 100, "value": "Wajib + Berikan Contoh" },
+        { "label": "Analisis Risiko pada Model Spiral (4 Kuadran)", "percent": 100, "value": "Krusial — Gambar Diagramnya" },
+        { "label": "Karakteristik PL (Engineered, Not Worn Out, Custom)", "percent": 100, "value": "Dasar — Tapi Selalu Muncul" },
+        { "label": "Verification vs Validation — Definisi + Contoh", "percent": 100, "value": "Sangat Kritis" },
+        { "label": "Hukum Brooks — Implikasi Penambahan Orang", "percent": 85, "value": "Sering Masuk Kasus" }
+      ]
+    },
+    {
+      "section": "stats",
+      "caption": "Informasi Penilaian UTS",
+      "content": [
+        { "nama": "Bobot Nilai", "isi": "UTS berkontribusi sebesar 10% terhadap nilai akhir mata kuliah IMP307.", "icon": "info/32x32/skyblue", "url": "#" },
+        { "nama": "Standar Kelulusan", "isi": "Ketepatan dan kelengkapan analisis sesuai standar nilai universitas. Jawaban konseptual didukung contoh aplikatif lebih bernilai.", "icon": "check/32x32/green", "url": "#" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Lihat Riwayat Tugas", "url": "#", "icon": "book" },
+        { "text": "Hubungi Pengawas", "url": "#", "icon": "user" }
+      ]
+    },
+    {
+      "section": "btn",
+      "btn": [
+        { "text": "Menu", "modal": "web/side/modules", "icon": "menu" },
+        { "text": "Kembali", "url": "web/page/modul07", "icon": "prev" },
+        { "text": "Lanjut", "url": "web/page/modul09", "icon": "next" }
+      ]
+    }
+  ]
+}
